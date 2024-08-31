@@ -18,10 +18,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-
-// test route
-
-// Route::get('text-route', function () {
-//     Artisan::call("make:model Test -mcrR --policy");
-//     return "Model Test with migration, controller, resource, and policy created.";
-// });
+require __DIR__ . '/sajal.php';
