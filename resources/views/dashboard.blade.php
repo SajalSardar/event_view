@@ -15,7 +15,7 @@
 
             <x-forms.text-input type="text" placeholder="ener your name" />
             <x-forms.text-input type="email" placeholder="enter your email" />
-            <x-forms.text-input type="checkbox" />
+            <x-forms.radio-input />
         </div>
 
     </div>
