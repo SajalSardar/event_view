@@ -19,6 +19,12 @@
             <x-forms.radio-input />
             <x-forms.checkbox-input name="fruits" />
             <x-forms.select-input />
+            <x-buttons.primary>
+                {{ __('Save') }}
+            </x-buttons.primary>
+            <x-buttons.primary>
+                {{ __('Save And Continue') }}
+            </x-buttons.primary>
         </div>
 
     </div>
