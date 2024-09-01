@@ -36,7 +36,7 @@ class ModuleController extends Controller {
             'slug' => Str::slug($request->name),
         ]);
 
-        Artisan::call("make:model" . $name . " -mcrR --policy");
+        Artisan::call("make:model " . $name . " -mcrR --policy");
 
         $arrayOfPermissionNames = [
             'view list',
