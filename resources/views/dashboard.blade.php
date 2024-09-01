@@ -42,8 +42,20 @@
                         {{ __('Save And Continue') }}
                     </x-buttons.primary>
 
-                    <x-actions.edit route="#" title="Edit" />
-                    <x-actions.delete title="Delete" />
+                    <table class="w-full">
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Shah Alam</td>
+                                <td>
+                                    <x-actions.edit route="#" />
+                                    <x-actions.delete />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
                 </div>
             </div>
         </div>
