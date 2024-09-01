@@ -16,9 +16,6 @@ class {{ class }}
          if ($user->can('view list')) {
             return true;
         }
-        if ($user->can('view own list')) {
-            return $user->id == ${{ modelVariable }}->user_id;
-        }
     }
 
     /**

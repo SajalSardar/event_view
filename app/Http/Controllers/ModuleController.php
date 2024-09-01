@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Module;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Str;
-use Spatie\Permission\Models\Permission;
 
 class ModuleController extends Controller {
     /**
@@ -28,39 +25,6 @@ class ModuleController extends Controller {
      */
     public function store(Request $request) {
 
-        $name  = Str::ucfirst($request->name);
-        $guard = $request->guard;
-
-        $module = Module::create([
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
-        ]);
-
-        Artisan::call("make:model " . $name . " -mcrR --policy");
-
-        $arrayOfPermissionNames = [
-            'view list',
-            'view own list',
-            'create',
-            'update',
-            'update own',
-            'delete',
-            'delete won',
-            'restore',
-            'restore own',
-            'force delete',
-            'force delete own',
-        ];
-
-        $permissions = collect($arrayOfPermissionNames)->map(function ($permission) use ($guard, $module) {
-            return [
-                'name'       => $permission,
-                'module_id'  => $module->id,
-                'guard_name' => $guard,
-            ];
-        });
-
-        Permission::insert($permissions->toArray());
     }
 
     /**
