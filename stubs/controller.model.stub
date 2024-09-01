@@ -5,6 +5,7 @@ namespace {{ namespace }};
 use {{ namespacedModel }};
 use {{ rootNamespace }}Http\Controllers\Controller;
 use {{ namespacedRequests }}
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class {{ class }} extends Controller
 {
@@ -13,7 +14,7 @@ class {{ class }} extends Controller
      */
     public function index()
     {
-        //
+        Gate::authorize('view', {{ model }}::class);
     }
 
     /**
@@ -21,7 +22,7 @@ class {{ class }} extends Controller
      */
     public function create()
     {
-        //
+        Gate::authorize('create', {{ model }}::class);
     }
 
     /**
@@ -30,6 +31,7 @@ class {{ class }} extends Controller
     public function store({{ storeRequest }} $request)
     {
         //
+        Gate::authorize('create', {{ model }}::class);
     }
 
     /**
@@ -38,6 +40,7 @@ class {{ class }} extends Controller
     public function show({{ model }} ${{ modelVariable }})
     {
         //
+        Gate::authorize('view', ${{ modelVariable }});
     }
 
     /**
@@ -45,7 +48,7 @@ class {{ class }} extends Controller
      */
     public function edit({{ model }} ${{ modelVariable }})
     {
-        //
+        Gate::authorize('update', ${{ modelVariable }});
     }
 
     /**
@@ -53,7 +56,7 @@ class {{ class }} extends Controller
      */
     public function update({{ updateRequest }} $request, {{ model }} ${{ modelVariable }})
     {
-        //
+        Gate::authorize('update', ${{ modelVariable }});
     }
 
     /**
@@ -61,6 +64,6 @@ class {{ class }} extends Controller
      */
     public function destroy({{ model }} ${{ modelVariable }})
     {
-        //
+        Gate::authorize('delete', ${{ modelVariable }});
     }
 }
