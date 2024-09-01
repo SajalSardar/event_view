@@ -15,7 +15,9 @@
 
             <x-forms.text-input type="text" placeholder="ener your name" />
             <x-forms.text-input type="email" placeholder="enter your email" />
+            <x-forms.text-input type="date" />
             <x-forms.radio-input />
+            <x-forms.checkbox-input name="fruits" />
         </div>
 
     </div>
