@@ -30,6 +30,10 @@
                         </x-forms.select-input>
                     </div>
 
+                    <x-buttons.secondary>
+                        {{ __('Add New') }}
+                    </x-buttons.secondary>
+
                     <x-buttons.primary>
                         {{ __('Save') }}
                     </x-buttons.primary>
@@ -37,6 +41,9 @@
                     <x-buttons.primary>
                         {{ __('Save And Continue') }}
                     </x-buttons.primary>
+
+                    <x-actions.edit route="#" title="Edit" />
+                    <x-actions.delete title="Delete" />
                 </div>
             </div>
         </div>
