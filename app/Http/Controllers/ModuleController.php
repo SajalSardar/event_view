@@ -28,7 +28,7 @@ class ModuleController extends Controller {
      */
     public function store(Request $request) {
 
-        $name  = $request->name;
+        $name  = Str::ucfirst($request->name);
         $guard = $request->guard;
 
         $module = Module::create([
@@ -36,7 +36,7 @@ class ModuleController extends Controller {
             'slug' => Str::slug($request->name),
         ]);
 
-        Artisan::call("make:model" . $name . "-mcrR --policy");
+        Artisan::call("make:model" . $name . " -mcrR --policy");
 
         $arrayOfPermissionNames = [
             'view list',
