@@ -18,6 +18,7 @@
             <x-forms.text-input type="date" />
             <x-forms.radio-input />
             <x-forms.checkbox-input name="fruits" />
+            <x-forms.select-input />
         </div>
 
     </div>
