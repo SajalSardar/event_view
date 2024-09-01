@@ -12,6 +12,11 @@
                     {{ __("You're logged in!") }}
                 </div>
             </div>
+
+            <x-forms.text-input type="text" placeholder="ener your name" />
+            <x-forms.text-input type="email" placeholder="enter your email" />
+            <x-forms.text-input type="checkbox" />
         </div>
+
     </div>
 </x-app-layout>
