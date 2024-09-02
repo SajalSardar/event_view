@@ -13,12 +13,12 @@ class CreateModule extends Component {
 
     #[Validate]
     public $name = '';
-    public $guard = '';
+
+    public $folder_name = '';
 
     public function rules() {
         return [
-            'name'  => 'required|min:4|capi',
-            'guard' => 'required',
+            'name' => 'required|min:4',
         ];
     }
 
@@ -33,7 +33,20 @@ class CreateModule extends Component {
             'slug' => Str::slug($name),
         ]);
 
-        Artisan::call("make:model " . $name . " -mcr --policy");
+        if (!empty($this->folder_name)) {
+
+            $replace_folder_name = str_replace(" ", '_', $this->folder_name);
+            $folder_name         = Str::ucfirst($replace_folder_name);
+
+            Artisan::call("make:model " . $name . " -m --policy");
+            Artisan::call("make:controller " . $folder_name . '\\' . $name . "Controller -r");
+            Artisan::call("make:livewire " . $folder_name . '\\' . "Create" . $name);
+            Artisan::call("make:livewire " . $folder_name . '\\' . "Update" . $name);
+        } else {
+            Artisan::call("make:model " . $name . " -mcr --policy");
+            Artisan::call("make:livewire Create" . $name);
+            Artisan::call("make:livewire Update" . $name);
+        }
 
         $arrayOfPermissionNames = [
             'view list',
@@ -53,12 +66,13 @@ class CreateModule extends Component {
             return [
                 'name'       => $permission,
                 'module_id'  => $module->id,
-                'guard_name' => $this->guard,
+                'guard_name' => 'web',
             ];
         });
 
         Permission::insert($permissions->toArray());
 
+        flash()->success('User saved successfully!');
         return redirect()->to('/dashboard/module/create');
     }
 

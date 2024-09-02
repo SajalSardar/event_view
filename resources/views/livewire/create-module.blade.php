@@ -17,19 +17,10 @@
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
 
                     </div>
-
-                    <!-- Password -->
-                    <div class="mt-4">
-                        <x-input-label for="user" :value="__('Guard Name')" />
-                        <select class="block mt-1 w-full" wire:model.blur="guard">
-                            <option value="web" selected>Web</option>
-                            <option value="admin">Admin</option>
-                            <option value="organizer">Organizer</option>
-                            <option value="attendee">Attendee</option>
-                        </select>
-
-
-                        <x-input-error :messages="$errors->get('guard')" class="mt-2" />
+                    <div class="mt-3">
+                        <x-input-label for="folder_name" :value="__('Folder Name')" />
+                        <x-text-input id="folder_name" class="block mt-1 w-full" type="text" :value="old('folder_name')"
+                            wire:model.blur="folder_name" />
                     </div>
 
 
