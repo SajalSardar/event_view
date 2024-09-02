@@ -26,7 +26,9 @@ class CreateModule extends Component {
 
         $this->validate();
 
-        $name = Str::ucfirst($this->name);
+        $replace_name = str_replace(" ", '', trim($this->name));
+        $name         = Str::ucfirst($replace_name);
+        $name_lower   = Str::lower($this->name);
 
         $module = Module::create([
             'name' => $name,
@@ -46,17 +48,17 @@ class CreateModule extends Component {
         }
 
         $arrayOfPermissionNames = [
-            'view list',
-            'view own list',
-            'create',
-            'update',
-            'update own',
-            'delete',
-            'delete won',
-            'restore',
-            'restore own',
-            'force delete',
-            'force delete own',
+            'view list ' . $name_lower,
+            'view own list ' . $name_lower,
+            'create ' . $name_lower,
+            'update ' . $name_lower,
+            'update own ' . $name_lower,
+            'delete ' . $name_lower,
+            'delete won ' . $name_lower,
+            'restore ' . $name_lower,
+            'restore own ' . $name_lower,
+            'force delete ' . $name_lower,
+            'force delete own ' . $name_lower,
         ];
 
         $permissions = collect($arrayOfPermissionNames)->map(function ($permission) use ($module) {
