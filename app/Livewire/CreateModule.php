@@ -18,7 +18,7 @@ class CreateModule extends Component {
 
     public function rules() {
         return [
-            'name' => 'required|min:4',
+            'name' => 'required|min:4|unique:modules',
         ];
     }
 
@@ -35,17 +35,14 @@ class CreateModule extends Component {
 
         if (!empty($this->folder_name)) {
 
-            $replace_folder_name = str_replace(" ", '_', $this->folder_name);
+            $replace_folder_name = str_replace(" ", '_', trim($this->folder_name));
             $folder_name         = Str::ucfirst($replace_folder_name);
 
             Artisan::call("make:model " . $name . " -m --policy");
-            Artisan::call("make:controller " . $folder_name . '\\' . $name . "Controller -r");
-            Artisan::call("make:livewire " . $folder_name . '\\' . "Create" . $name);
-            Artisan::call("make:livewire " . $folder_name . '\\' . "Update" . $name);
+            Artisan::call("make:controller " . $folder_name . '/' . $name . "Controller -r");
+
         } else {
             Artisan::call("make:model " . $name . " -mcr --policy");
-            Artisan::call("make:livewire Create" . $name);
-            Artisan::call("make:livewire Update" . $name);
         }
 
         $arrayOfPermissionNames = [

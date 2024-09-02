@@ -5,6 +5,7 @@ namespace {{ namespace }};
 use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Cache;
 
 class {{ class }} extends Controller
 {
@@ -14,6 +15,19 @@ class {{ class }} extends Controller
     public function index()
     {
         Gate::authorize('view', {{ model }}::class);
+    
+    }
+
+    /**
+     * Display a listing of the data table resource.
+     */
+    public function displayListDatatable()
+    {
+        Gate::authorize('view', {{ model }}::class);
+        
+        ${{ modelVariable }} = Cache::remember('name_list', 60 * 60, function () {
+            return {{ model }}::get();
+        });
     }
 
     /**
