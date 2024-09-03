@@ -4,38 +4,59 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This website is about manage events.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Event Metro') }}</title>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- Style css  !-->
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigation')
+<body class="text-gray-800 font-inter flex items-center justify-center" style="background: #edf2f7;">
 
-        <!-- Page Heading -->
-        @isset($header)
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endisset
+    <!-- Sidenav start -->
+    @include('layouts.partials.sidebar')
+    <!-- Sidenav end -->
 
-        <!-- Page Content -->
-        <main>
+    <main class="w-full bg-white md:w-[calc(100%-256px)] md:ml-64 min-h-screen transition-all main">
+        <!-- Navbar Start -->
+        @include('layouts.partials.navbar')
+        <!-- Navbar End -->
+        <div class="pt-8 pl-10">
+
+
+            <!-- Breadcrumb -->
+            <nav class="flex pb-3 text-gray-700 " aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                    <li class="inline-flex items-center">
+                        <a href="#" class="inline-flex items-center text-sm font-medium text-gray-400">
+                            DASHBOARD
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <span class="font-medium text-gray-400">/</span>
+                            <a href="#" class="ms-1 text-sm font-medium text-gray-400">EVENT ORGANIZER DASHBOARD</a>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
             {{ $slot }}
-        </main>
-    </div>
+        </div>
+
+    </main>
+
     @livewireScripts
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ asset('assets/script.js') }}"></script>
+
 </body>
 
 </html>
