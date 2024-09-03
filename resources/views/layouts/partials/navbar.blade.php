@@ -1,4 +1,4 @@
-<div class="py-2 px-6 bg-navbar-bg flex items-center sticky top-0 left-0 z-30" style="border-bottom: 1px solid #cfcece">
+{{-- <div class="py-2 px-6 bg-navbar-bg flex items-center sticky top-0 left-0 z-30" style="border-bottom: 1px solid #cfcece">
     <button type="button" class="text-lg text-gray-900 font-semibold sidebar-toggle">
         <i class="ri-menu-line">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -200,4 +200,55 @@
             </ul>
         </li>
     </ul>
+</div> --}}
+
+<div class="h-[70px] bg-navbar py-2 px-6 bg-navbar-bg flex items-center sticky top-0 left-0 z-30" style="border-bottom: 1px solid #cfcece">
+
+    <div class="flex w-full items-center">
+        <div class="basis-4/6">
+            <div class="flex h-[70px]">
+                <div class="basis-1/6 flex items-center pl-14">
+                    <button type="button" class="text-lg text-gray-900 font-semibold sidebar-toggle">
+                        <i class="ri-menu-line">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 5H14" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M4 12H20" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M4 19H20" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </i>
+                    </button>
+                </div>
+                <div class="basis-4/6 flex items-center">
+                    <input class="w-[calc(100%-20px)] p-3 border border-slate-300 rounded" type="search" placeholder="search here...">
+                </div>
+                <div class="basis-1/6 flex items-center border border-slate-300 border-r-1 border-l-0 border-t-0 border-b-0">
+                    UTC - 7 11.50 PM ^
+                </div>
+            </div>
+        </div>
+        <div class="basis-2/6">
+            <div class="flex h-[70px]">
+                <div class="basis-1/3 flex justify-center items-center border border-slate-300 border-r-1 border-l-0 border-t-0 border-b-0">
+                    <img src="{{ asset('assets/icons/eng.png') }}" alt="country">
+                    <p class="pl-1">ENG</p>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="basis-1/3 flex justify-center items-center border border-slate-300 border-r-1 border-l-0 border-t-0 border-b-0">
+                    <img src="{{ asset('assets/icons/notifications.png') }}" alt="notification" class="pr-3">
+                    <img src="{{ asset('assets/icons/email-notification.png') }}" alt="email_notification">
+                </div>
+                <div class="basis-1/3 flex justify-center items-center cursor-pointer">
+                    <img src="{{ asset('assets/images/profile.png') }}" alt="profile">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
 </div>
