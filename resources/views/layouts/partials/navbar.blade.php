@@ -18,7 +18,10 @@
                     <input class="w-[calc(100%-20px)] sm:w-[calc(100%-200px)] p-3 border border-slate-300 rounded" type="search" placeholder="search here...">
                 </div>
                 <div class="basis-1/6 flex items-center border border-slate-300 border-r-1 border-l-0 border-t-0 border-b-0">
-                    UTC - 7 11.50 PM ^
+                    <select class="border border-slate-200 rounded bg-transparent">
+                        <option value="attende">Attendee</option>
+                        <option value="attende">Organizer</option>
+                    </select>
                 </div>
             </div>
         </div>
