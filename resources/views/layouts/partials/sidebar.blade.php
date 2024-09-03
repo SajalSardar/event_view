@@ -17,6 +17,7 @@
                 <span class="text-sm">Dashboard</span>
             </a>
         </li>
+
         <li class="mb-1 group pb-5 px-5">
             <svg class="inline-block" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11 13H16M8 13H8.00898M13 17H8M16 17H15.991" stroke="#6D4DFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
