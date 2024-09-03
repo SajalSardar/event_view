@@ -1,4 +1,4 @@
-<div class="py-2 px-6 bg-[#f8f4f3] flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+<div class="py-2 px-6 bg-navbar-bg flex items-center sticky top-0 left-0 z-30" style="border-bottom: 1px solid #cfcece">
     <button type="button" class="text-lg text-gray-900 font-semibold sidebar-toggle">
         <i class="ri-menu-line">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
