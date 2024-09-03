@@ -219,7 +219,7 @@
                     </button>
                 </div>
                 <div class="basis-4/6 flex items-center">
-                    <input class="w-[calc(100%-20px)] p-3 border border-slate-300 rounded" type="search" placeholder="search here...">
+                    <input class="w-[calc(100%-20px)] sm:w-[calc(100%-200px)] p-3 border border-slate-300 rounded" type="search" placeholder="search here...">
                 </div>
                 <div class="basis-1/6 flex items-center border border-slate-300 border-r-1 border-l-0 border-t-0 border-b-0">
                     UTC - 7 11.50 PM ^
