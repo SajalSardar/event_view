@@ -48,17 +48,17 @@ class CreateModule extends Component {
         }
 
         $arrayOfPermissionNames = [
-            'view list ' . $name_lower,
-            'view own list ' . $name_lower,
-            'create ' . $name_lower,
-            'update ' . $name_lower,
-            'update own ' . $name_lower,
-            'delete ' . $name_lower,
-            'delete won ' . $name_lower,
-            'restore ' . $name_lower,
-            'restore own ' . $name_lower,
-            'force delete ' . $name_lower,
-            'force delete own ' . $name_lower,
+            $name_lower . ' view list',
+            $name_lower . ' view own list',
+            $name_lower . ' create ',
+            $name_lower . ' update ',
+            $name_lower . ' update own ',
+            $name_lower . ' delete ',
+            $name_lower . ' delete won ',
+            $name_lower . ' restore ',
+            $name_lower . ' restore own ',
+            $name_lower . ' force delete ',
+            $name_lower . ' force delete own ',
         ];
 
         $permissions = collect($arrayOfPermissionNames)->map(function ($permission) use ($module) {
