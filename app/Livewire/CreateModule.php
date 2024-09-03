@@ -35,18 +35,6 @@ class CreateModule extends Component {
             'slug' => Str::slug($name),
         ]);
 
-        if (!empty($this->folder_name)) {
-
-            $replace_folder_name = str_replace(" ", '_', trim($this->folder_name));
-            $folder_name         = Str::ucfirst($replace_folder_name);
-
-            Artisan::call("make:model " . $name . " -m --policy");
-            Artisan::call("make:controller " . $folder_name . '/' . $name . "Controller -r");
-
-        } else {
-            Artisan::call("make:model " . $name . " -mcr --policy");
-        }
-
         $arrayOfPermissionNames = [
             $name_lower . ' view list',
             $name_lower . ' view own list',
@@ -70,6 +58,20 @@ class CreateModule extends Component {
         });
 
         Permission::insert($permissions->toArray());
+
+        if (!file_exists(app_path('Models/' . $name . ".php"))) {
+            if (!empty($this->folder_name)) {
+
+                $replace_folder_name = str_replace(" ", '_', trim($this->folder_name));
+                $folder_name         = Str::ucfirst($replace_folder_name);
+
+                Artisan::call("make:model " . $name . " -m --policy");
+                Artisan::call("make:controller " . $folder_name . '/' . $name . "Controller -r");
+
+            } else {
+                Artisan::call("make:model " . $name . " -mcr --policy");
+            }
+        }
 
         flash()->success('User saved successfully!');
         return redirect()->to('/dashboard/module/create');
