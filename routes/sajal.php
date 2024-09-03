@@ -3,6 +3,7 @@
 // module
 
 use App\Http\Controllers\ModuleController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('dashboard/')->name('dashboard.')->group(function () {
@@ -10,7 +11,7 @@ Route::prefix('dashboard/')->name('dashboard.')->group(function () {
 });
 // test route
 
-// Route::get('text-route', function () {
-//     Artisan::call("make:model Test -mcrR --policy");
-//     return "Model Test with migration, controller, resource, and policy created.";
-// });
+Route::get('text-route', function () {
+    Artisan::call("livewire:make test");
+    return "Model Test with migration, controller, resource, and policy created.";
+});

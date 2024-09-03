@@ -21,6 +21,7 @@
                         <x-input-label for="folder_name" :value="__('Folder Name')" />
                         <x-text-input id="folder_name" class="block mt-1 w-full" type="text" :value="old('folder_name')"
                             wire:model.blur="folder_name" />
+                        <p class="opacity-75">Controller create in folder!</p>
                     </div>
 
 
