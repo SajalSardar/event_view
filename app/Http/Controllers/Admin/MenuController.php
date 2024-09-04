@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Menu;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Gate;
 
 class MenuController extends Controller
 {
@@ -14,7 +14,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        Gate::authorize('view', Menu::class);
+        Gate::authorize('view', {{ model }}::class);
+    
     }
 
     /**
@@ -22,10 +23,10 @@ class MenuController extends Controller
      */
     public function displayListDatatable()
     {
-        Gate::authorize('view', Menu::class);
+        Gate::authorize('view', {{ model }}::class);
         
-        $menu = Cache::remember('name_list', 60 * 60, function () {
-            return Menu::get();
+        ${{ modelVariable }} = Cache::remember('name_list', 60 * 60, function () {
+            return {{ model }}::get();
         });
     }
 
@@ -34,7 +35,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        Gate::authorize('create', Menu::class);
+        Gate::authorize('crate', {{ model }}::class);
     }
 
     /**
@@ -42,40 +43,38 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        Gate::authorize('create', Menu::class);
+        Gate::authorize('crate', {{ model }}::class);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Menu $menu)
+    public function show(string $id)
     {
-        //
-        Gate::authorize('view', $menu);
+        Gate::authorize('view', {{ model }}::class);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Menu $menu)
+    public function edit(string $id)
     {
-        Gate::authorize('update', $menu);
+        Gate::authorize('update', {{ model }}::class);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Menu $menu)
+    public function update(Request $request, string $id)
     {
-        Gate::authorize('update', $menu);
+        Gate::authorize('update', {{ model }}::class);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Menu $menu)
+    public function destroy(string $id)
     {
-        Gate::authorize('delete', $menu);
+        Gate::authorize('update', {{ model }}::class);
     }
 }

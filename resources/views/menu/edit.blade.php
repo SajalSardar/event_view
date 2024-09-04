@@ -1,0 +1,1 @@
+<x-app-layout><livewire:update-menu /></x-app-layout>
