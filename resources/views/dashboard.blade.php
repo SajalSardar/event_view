@@ -27,4 +27,10 @@
         </form>
     </div>
 
+
+    <x-base.table>
+
+    </x-base.table>
+
+
 </x-app-layout>

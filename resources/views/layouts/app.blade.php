@@ -27,7 +27,7 @@
         <!-- Navbar Start -->
         @include('layouts.partials.navbar')
         <!-- Navbar End -->
-        <div class="pt-8 pl-10">
+        <div class="pt-8 px-10">
 
             <!-- Breadcrumb Start -->
             @include('layouts.partials.breadcrumb')

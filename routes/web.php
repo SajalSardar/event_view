@@ -20,5 +20,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/sajal.php';
+require __DIR__ . '/thealamdev.php';
 
 Route::get('locale/{lang}', [LocalizationController::class, 'locale'])->name('local');
