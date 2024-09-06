@@ -47,7 +47,7 @@
                             <path d="M6 9L12 15L18 9" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </div>
-                    <div class="toggle-menu absolute p-3 shadow-lg w-full rounded" style="top: 70px;display:none">
+                    <div class="toggle-menu absolute p-3 shadow-lg w-full rounded bg-white" style="top: 70px;display:none">
                         <ul>
                             <li class="py-2">
                                 <p href="#" class="font-normal text-slate-700">
