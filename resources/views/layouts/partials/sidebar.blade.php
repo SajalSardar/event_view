@@ -140,7 +140,7 @@
                         <path d="M12 18V22" stroke="#6D4DFF" stroke-width="1.5" />
                         <path d="M8 22H16" stroke="#6D4DFF" stroke-width="1.5" stroke-linecap="round" />
                     </svg>
-                    <a href=""
+                    <a href="{{ route('dashboard.menu.index') }}"
                         class="pl-3 text-gray-900 text-sm flex items-center hover:text-[#f84525]">{{ __('Menus') }}</a>
                 </li>
 

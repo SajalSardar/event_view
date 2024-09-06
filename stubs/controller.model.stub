@@ -7,6 +7,7 @@ use {{ rootNamespace }}Http\Controllers\Controller;
 use {{ namespacedRequests }}
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Cache;
+use App\Models\User;
 
 class {{ class }} extends Controller
 {
@@ -15,7 +16,8 @@ class {{ class }} extends Controller
      */
     public function index()
     {
-        Gate::authorize('view', {{ model }}::class);
+        Gate::authorize('view', [User::class, {{ model }}::class]);
+        return view("{{ model }}.index");
     }
 
     /**
@@ -23,7 +25,7 @@ class {{ class }} extends Controller
      */
     public function displayListDatatable()
     {
-        Gate::authorize('view', {{ model }}::class);
+        Gate::authorize('view', [User::class, {{ model }}::class]);
         
         ${{ modelVariable }} = Cache::remember('name_list', 60 * 60, function () {
             return {{ model }}::get();
@@ -35,7 +37,8 @@ class {{ class }} extends Controller
      */
     public function create()
     {
-        Gate::authorize('create', {{ model }}::class);
+        Gate::authorize('create', [User::class, {{ model }}::class]);
+        return view('{{ model }}.create');
     }
 
     /**
@@ -44,7 +47,8 @@ class {{ class }} extends Controller
     public function store({{ storeRequest }} $request)
     {
         //
-        Gate::authorize('create', {{ model }}::class);
+        Gate::authorize('create', [User::class, {{ model }}::class]);
+
     }
 
     /**
@@ -53,7 +57,8 @@ class {{ class }} extends Controller
     public function show({{ model }} ${{ modelVariable }})
     {
         //
-        Gate::authorize('view', ${{ modelVariable }});
+        Gate::authorize('view', [User::class, {{ model }}::class]);
+        return view('{{ modelVariable }}.show');
     }
 
     /**
@@ -61,7 +66,8 @@ class {{ class }} extends Controller
      */
     public function edit({{ model }} ${{ modelVariable }})
     {
-        Gate::authorize('update', ${{ modelVariable }});
+        Gate::authorize('update', [User::class, {{ model }}::class]);
+        return view('{{ modelVariable }}.edit');
     }
 
     /**
@@ -69,7 +75,7 @@ class {{ class }} extends Controller
      */
     public function update({{ updateRequest }} $request, {{ model }} ${{ modelVariable }})
     {
-        Gate::authorize('update', ${{ modelVariable }});
+        Gate::authorize('update', [User::class, {{ model }}::class]);
     }
 
     /**
@@ -77,6 +83,6 @@ class {{ class }} extends Controller
      */
     public function destroy({{ model }} ${{ modelVariable }})
     {
-        Gate::authorize('delete', ${{ modelVariable }});
+        Gate::authorize('delete', [User::class, {{ model }}::class]);
     }
 }

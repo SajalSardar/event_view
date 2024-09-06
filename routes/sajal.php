@@ -2,10 +2,10 @@
 
 // module
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\ModuleController;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Route;
 
 Route::prefix('dashboard/')->name('dashboard.')->group(function () {
     Route::resource('module', ModuleController::class);
