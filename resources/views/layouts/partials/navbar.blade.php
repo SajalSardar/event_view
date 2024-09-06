@@ -1,4 +1,4 @@
-<div class="h-[70px] bg-navbar py-2 px-6 bg-navbar-bg flex items-center sticky top-0 left-0 z-30" style="border-bottom: 1px solid #cfcece">
+<div class="h-[70px] bg-navbar py-2 px-6 bg-navbar-bg flex items-center sticky top-0 left-0 z-30" style="border-bottom: 1px solid #cfcece;z-index:10">
 
     <div class="flex w-full items-center">
         <div class="basis-4/6">
@@ -40,11 +40,31 @@
                     <img src="{{ asset('assets/icons/notifications.png') }}" alt="notification" class="pr-3">
                     <img src="{{ asset('assets/icons/email-notification.png') }}" alt="email_notification">
                 </div>
-                <div class="basis-1/3 flex justify-center items-center cursor-pointer">
-                    <img src="{{ asset('assets/images/profile.png') }}" alt="profile">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L12 15L18 9" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                <div class="basis-1/3 cursor-pointer relative">
+                    <div class="toggle-menu-button flex justify-center items-center h-full">
+                        <img src="{{ asset('assets/images/profile.png') }}" alt="profile">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="toggle-menu absolute p-3 shadow-lg w-full rounded" style="top: 70px;display:none">
+                        <ul>
+                            <li class="py-2">
+                                <p href="#" class="font-normal text-slate-700">
+                                    {{ Auth::user()->name }}
+                                </p>
+                            </li>
+                            <li class="py-2">
+                                <a href="#" class="font-normal text-slate-700">Profile</a>
+                            </li>
+                            <li class="py-2">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="bg-transparent font-normal text-slate-700">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 

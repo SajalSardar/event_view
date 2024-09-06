@@ -203,3 +203,18 @@ function generateRandomData(n) {
     return data
 }
 // end: Chart
+
+/**
+ * Dropdown menu 
+ */
+
+let toggleMenuButton = document.querySelector('.toggle-menu-button');
+let toggleMenu = document.querySelector('.toggle-menu');
+
+toggleMenuButton.addEventListener('click', function (e) {
+    if (toggleMenu.style.display == 'none') {
+        toggleMenu.style.display = 'block';
+    } else {
+        toggleMenu.style.display = 'none';
+    }
+})
