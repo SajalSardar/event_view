@@ -9,24 +9,24 @@
     </thead>
 
     <tbody class="mt-5">
-        @for ($i = 1; $i <= 3; $i++)
-            <tr class="rounded shadow">
-                <td class="p-10 flex">
-                    <div class="profile">
-                        <img src="{{ asset('assets/images/user.png') }}" alt="user_picture">
-                    </div>
-                    <div class="infos ps-5">
-                        <h5 class="font-medium text-slate-900">Business Innovation conf 24</h5>
-                        <p class="font-normal text-gray-400">11 Aug, 2024 - Sunday</p>
-                        <p class="font-normal text-gray-400">11.00-11.30 AM</p>
-                        <p class="font-normal text-gray-400">334,New York,USA</p>
-                    </div>
-                </td>
-                <td class="p-10 font-normal text-gray-400">0/3</td>
-                <td class="p-10 font-normal text-gray-400">$50</td>
-                <td class="p-10 font-normal text-gray-400">Upcoming Event</td>
-            </tr>
-        @endfor
+
+        <tr class="rounded shadow">
+            <td class="p-10 flex">
+                <div class="profile">
+                    <img src="{{ asset('assets/images/user.png') }}" alt="user_picture">
+                </div>
+                <div class="infos ps-5">
+                    <h5 class="font-medium text-slate-900">Business Innovation conf 24</h5>
+                    <p class="font-normal text-gray-400">11 Aug, 2024 - Sunday</p>
+                    <p class="font-normal text-gray-400">11.00-11.30 AM</p>
+                    <p class="font-normal text-gray-400">334,New York,USA</p>
+                </div>
+            </td>
+            <td class="p-10 font-normal text-gray-400">0/3</td>
+            <td class="p-10 font-normal text-gray-400">$50</td>
+            <td class="p-10 font-normal text-gray-400">Upcoming Event</td>
+        </tr>
+
 
     </tbody>
 </table>
