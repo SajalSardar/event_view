@@ -34,6 +34,7 @@ class CreateModule extends Component {
         $name_lower   = Str::lower($replace_name);
 
         $moduleOldData = Module::where('slug', $name_lower)->first();
+
         if (empty($moduleOldData)) {
             $moduleOldData = [
                 'permission'         => null,
@@ -193,7 +194,7 @@ class CreateModule extends Component {
                 $folder_name         = Str::ucfirst($replace_folder_name);
 
                 Artisan::call("make:model " . $name . " -m --policy");
-                Artisan::call("make:controller " . $folder_name . '/' . $name . "Controller -r");
+                Artisan::call("make:controller " . $folder_name . '/' . $name . "Controller --model=$name --resource");
 
             } else {
                 Artisan::call("make:model " . $name . " -mcr --policy");
