@@ -13,6 +13,10 @@ return new class extends Migration {
             $table->id();
             $table->string('name')->unique()->index();
             $table->string('slug');
+            $table->boolean('permission')->nullable();
+            $table->boolean('view')->nullable();
+            $table->boolean('livewire_component')->nullable();
+            $table->boolean('mcrp')->nullable()->comment('model,controller,migration,policy,resource route');
             $table->timestamps();
         });
     }
