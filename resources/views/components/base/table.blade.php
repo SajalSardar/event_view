@@ -9,7 +9,6 @@
     </thead>
 
     <tbody class="mt-5">
-
         <tr class="rounded shadow">
             <td class="p-10 flex">
                 <div class="profile">
@@ -26,7 +25,5 @@
             <td class="p-10 font-normal text-gray-400">$50</td>
             <td class="p-10 font-normal text-gray-400">Upcoming Event</td>
         </tr>
-
-
     </tbody>
 </table>
