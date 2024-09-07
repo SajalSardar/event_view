@@ -205,7 +205,7 @@ function generateRandomData(n) {
 // end: Chart
 
 /**
- * Dropdown menu 
+ * Dropdown menu toggle 
  */
 
 let toggleMenuButton = document.querySelector('.toggle-menu-button');
@@ -216,5 +216,30 @@ toggleMenuButton.addEventListener('click', function (e) {
         toggleMenu.style.display = 'block';
     } else {
         toggleMenu.style.display = 'none';
+    }
+})
+
+/**
+ * Dropdown item in notification and email notification
+ */
+
+let toggleNotificationButton = document.querySelector('.toggle-notification-button');
+let toggleNotificationBox = document.querySelector('.toggle-notification-box');
+
+toggleNotificationButton.addEventListener('click', function (e) {
+    if (toggleNotificationBox.style.display == 'none') {
+        toggleNotificationBox.style.display = 'block';
+    } else {
+        toggleNotificationBox.style.display = 'none';
+    }
+})
+let toggleEmailNotificationButton = document.querySelector('.toggle-email-notification-button');
+let toggleEmailNotificationBox = document.querySelector('.toggle-email-notification-box');
+
+toggleEmailNotificationButton.addEventListener('click', function (e) {
+    if (toggleEmailNotificationBox.style.display == 'none') {
+        toggleEmailNotificationBox.style.display = 'block';
+    } else {
+        toggleEmailNotificationBox.style.display = 'none';
     }
 })
