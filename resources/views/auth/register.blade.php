@@ -1,11 +1,11 @@
 <x-guest-layout>
     <section class="bg-white border border-slate-400 lg:rounded-3xl sm:rounded-none">
         <div class="lg:grid sm:h-[885px] h-[500px] lg:grid-cols-12">
-            <section class="relative flex h-full items-end lg:col-span-5 lg:h-full xl:col-span-6">
+            <section class="relative sm:hidden md:hidden lg:block xl:block flex h-full items-end lg:col-span-5 lg:h-full xl:col-span-6">
                 <img alt="" src="{{ asset('assets/images/login-page-image.png') }}" class="absolute lg:rounded-l-3xl sm:rounded-none inset-0 h-full w-full object-fit opacity-80" />
             </section>
 
-            <main class="flex items-center justify-center py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
+            <main class="flex items-center justify-center py-8 sm:px-0 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
                 <div class="max-w-xl lg:max-w-3xl border border-slate-200 rounded-lg p-12">
                     <h3 class="font-bold text-2xl">SIGN UP</h3>
                     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -14,14 +14,16 @@
                         <div class="col-span-6 sm:col-span-3">
                             <a href="#" class="inline-block border border-slate-200 rounded-lg p-3 w-full">
                                 <img class="inline-block" src="{{ asset('assets/icons/goolge-logo.png') }}" alt="google">
-                                <span class="pl-2">Sign in with Google</span>
+                                <span class="pl-2 sm:hidden md:inline-block text-center">Sign in with Google</span>
+                                <span class="pl-2 md:hidden">Sign In</span>
                             </a>
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <a href="#" class="inline-block border border-slate-200 rounded-lg p-3 w-full">
                                 <img class="inline-block" src="{{ asset('assets/icons/facebook-logo.png') }}" alt="facebook">
-                                <span class="pl-2">Sign in with Facebook</span>
+                                <span class="pl-2 sm:hidden md:inline-block text-center">Sign in with Facebook</span>
+                                <span class="pl-2 md:hidden">Sign In</span>
                             </a>
                         </div>
 

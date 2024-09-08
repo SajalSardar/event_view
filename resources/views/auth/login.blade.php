@@ -1,7 +1,7 @@
 <x-guest-layout>
     <section class="bg-white border border-slate-400 lg:rounded-3xl sm:rounded-none">
         <div class="lg:grid sm:h-[850px] h-[500px] lg:grid-cols-12">
-            <section class="relative flex h-full items-end lg:col-span-5 lg:h-full xl:col-span-6">
+            <section class="relative sm:hidden md:hidden lg:block xl:block flex h-full items-end lg:col-span-5 lg:h-full xl:col-span-6">
                 <img alt="" src="{{ asset('assets/images/login-page-image.png') }}" class="absolute lg:rounded-l-3xl sm:rounded-none inset-0 h-full w-full object-cover opacity-80" />
             </section>
 
@@ -14,14 +14,16 @@
                         <div class="col-span-6 sm:col-span-3">
                             <a href="#" class="inline-block border border-slate-200 rounded-lg p-3 w-full">
                                 <img class="inline-block" src="{{ asset('assets/icons/goolge-logo.png') }}" alt="google">
-                                <span class="pl-2">Sign in with Google</span>
+                                <span class="pl-2 sm:hidden md:inline-block text-center">Sign in with Google</span>
+                                <span class="pl-2 md:hidden">Sign In</span>
                             </a>
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <a href="#" class="inline-block border border-slate-200 rounded-lg p-3 w-full">
                                 <img class="inline-block" src="{{ asset('assets/icons/facebook-logo.png') }}" alt="facebook">
-                                <span class="pl-2">Sign in with Facebook</span>
+                                <span class="pl-2 sm:hidden md:inline-block text-center">Sign in with Facebook</span>
+                                <span class="pl-2 md:hidden">Sign In</span>
                             </a>
                         </div>
 
