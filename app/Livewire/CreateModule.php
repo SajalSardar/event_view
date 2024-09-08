@@ -9,7 +9,8 @@ use Illuminate\Support\Str;
 use Livewire\Component;
 use Spatie\Permission\Models\Permission;
 
-class CreateModule extends Component {
+class CreateModule extends Component
+{
 
     // #[Validate]
     public $name        = '';
@@ -19,13 +20,15 @@ class CreateModule extends Component {
     public $livewire_component;
     public $mcrp;
 
-    public function rules() {
+    public function rules()
+    {
         return [
             'name' => 'required|min:4',
         ];
     }
 
-    public function save() {
+    public function save()
+    {
 
         $this->validate();
 
@@ -112,7 +115,6 @@ class CreateModule extends Component {
                     }
                 }";
                 File::put(app_path($createFileName), $contents);
-
             }
 
             if (!File::exists(app_path($updateFileName))) {
@@ -190,7 +192,6 @@ class CreateModule extends Component {
 
                 Artisan::call("make:model " . $name . " -m --policy");
                 Artisan::call("make:controller " . $folder_name . '/' . $name . "Controller --model=$name --resource");
-
             } else {
                 Artisan::call("make:model " . $name . " -mcr --policy");
             }
@@ -201,7 +202,8 @@ class CreateModule extends Component {
         return redirect()->to('/dashboard/module/create');
     }
 
-    public function render() {
+    public function render()
+    {
         return view('livewire.create-module');
     }
 }

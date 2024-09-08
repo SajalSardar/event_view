@@ -1,0 +1,1 @@
+<x-app-layout><livewire:update-adminuser /></x-app-layout>

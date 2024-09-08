@@ -1,13 +1,13 @@
 <?php
 
-                namespace App\Livewire\Menu;
+namespace App\Livewire\Menu;
 
-                use Livewire\Component;
+use Livewire\Component;
 
-                class CreateMenu extends Component
-                {
-                    public function render()
-                    {
-                        return view('livewire.create-menu');
-                    }
-                }
+class CreateMenu extends Component
+{
+    public function render()
+    {
+        return view('livewire.create-menu');
+    }
+}

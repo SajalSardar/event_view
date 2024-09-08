@@ -1,0 +1,1 @@
+<x-app-layout><livewire:create-adminuser /></x-app-layout>

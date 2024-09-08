@@ -11,16 +11,14 @@
                 <form method="POST" wire:submit="save">
                     <div>
                         <x-input-label for="module_name" :value="__('Name *')" />
-                        <x-text-input id="module_name" class="block mt-1 w-full" type="text" :value="old('name')"
-                            required autofocus wire:model.blur="name" />
+                        <x-text-input id="module_name" class="block mt-1 w-full" type="text" :value="old('name')" required autofocus wire:model.blur="name" />
 
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
 
                     </div>
                     <div class="mt-3">
                         <x-input-label for="folder_name" :value="__('Controller Folder')" />
-                        <x-text-input id="folder_name" class="block mt-1 w-full" type="text" :value="old('folder_name')"
-                            wire:model.blur="folder_name" />
+                        <x-text-input id="folder_name" class="block mt-1 w-full" type="text" :value="old('folder_name')" wire:model.blur="folder_name" />
                         <p class="opacity-75">Controller create in folder!</p>
                     </div>
                     <hr class="mt-3">
