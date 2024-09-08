@@ -14,8 +14,8 @@ class MenuController extends Controller {
      * Display a listing of the resource.
      */
     public function index() {
-        Gate::authorize('view', [User::class, Menu::class]);
-        return view("menu.index");
+        Gate::authorize('view', Menu::class);
+        return view('menu.index');
     }
 
     /**

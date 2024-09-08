@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder {
     /**
@@ -19,12 +20,37 @@ class DatabaseSeeder extends Seeder {
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        User::factory()->create([
+        $user = User::factory()->create([
             'name'              => 'Super Admin',
             'email'             => "superadmin@gmail.com",
             'email_verified_at' => now(),
             'password'          => Hash::make('password@987'),
             'remember_token'    => Str::random(10),
         ]);
+
+        $attendeeuser = User::factory()->create([
+            'name'              => 'Attendee',
+            'email'             => "attendee@gmail.com",
+            'email_verified_at' => now(),
+            'password'          => Hash::make('password@987'),
+            'remember_token'    => Str::random(10),
+        ]);
+
+        $organizeruser = User::factory()->create([
+            'name'              => 'Organizer',
+            'email'             => "organizer@gmail.com",
+            'email_verified_at' => now(),
+            'password'          => Hash::make('password@987'),
+            'remember_token'    => Str::random(10),
+        ]);
+
+        $role      = Role::create(['name' => 'super-admin']);
+        $attendee  = Role::create(['name' => 'attendee']);
+        $organizer = Role::create(['name' => 'organizer']);
+
+        $user->assignRole($role);
+        $attendeeuser->assignRole($attendee);
+        $organizeruser->assignRole($organizer);
+
     }
 }
