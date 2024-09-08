@@ -109,7 +109,7 @@ class CreateModule extends Component {
                 {
                     public function render()
                     {
-                        return view('livewire.create-$name_lower');
+                        return view('livewire.$name_lower.create-$name_lower');
                     }
                 }";
                 File::put(app_path($createFileName), $contents);

@@ -17,7 +17,7 @@ class {{ class }} extends Controller
     public function index()
     {
         Gate::authorize('view',  {{ model }}::class);
-        return view("{{ model }}.index");
+        return view("{{ modelVariable }}.index");
     }
 
     /**
@@ -38,7 +38,7 @@ class {{ class }} extends Controller
     public function create()
     {
         Gate::authorize('create', {{ model }}::class);
-        return view('{{ model }}.create');
+        return view('{{ modelVariable }}.create');
     }
 
     /**

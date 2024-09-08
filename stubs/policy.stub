@@ -15,7 +15,7 @@ class {{ class }}
      */
     public function viewAny({{ user }} $user): bool
     {
-         if ($user->can('{{ model }} view list')) {
+         if ($user->can('{{ modelVariable }} view list')) {
             return true;
         }
     }
@@ -37,7 +37,7 @@ class {{ class }}
     public function create({{ user }} $user): bool
     {
         //
-        return ($user->can('{{ model }} create'));
+        return ($user->can('{{ modelVariable }} create'));
     }
 
     /**

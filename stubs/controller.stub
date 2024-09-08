@@ -17,7 +17,7 @@ class {{ class }} extends Controller
     public function index()
     {
         Gate::authorize('view',  {{ model }}::class);
-        return view('{{ model }}.index');
+        return view('{{ modelVariable }}.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class {{ class }} extends Controller
      */
     public function displayListDatatable()
     {
-        Gate::authorize('view', {{ model }}::class);
+        Gate::authorize('view', {{ modelVariable }}::class);
         
         ${{ modelVariable }} = Cache::remember('name_list', 60 * 60, function () {
             return {{ model }}::get();
@@ -38,7 +38,7 @@ class {{ class }} extends Controller
     public function create()
     {
         Gate::authorize('crate',  {{ model }}::class);
-        return view('{{ model }}.create');
+        return view('{{ modelVariable }}.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class {{ class }} extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize('crate', {{ model }}::class);
+        Gate::authorize('crate', {{ modelVariable }}::class);
     }
 
     /**
@@ -55,7 +55,7 @@ class {{ class }} extends Controller
     public function show(string $id)
     {
         Gate::authorize('view', {{ model }}::class);
-        return view('{{ model }}.show');
+        return view('{{ modelVariable }}.show');
     }
 
     /**
@@ -64,7 +64,7 @@ class {{ class }} extends Controller
     public function edit(string $id)
     {
         Gate::authorize('update',  {{ model }}::class);
-        return view('{{ model }}.edit');
+        return view('{{ modelVariable }}.edit');
     }
 
     /**
@@ -72,7 +72,7 @@ class {{ class }} extends Controller
      */
     public function update(Request $request, string $id)
     {
-        Gate::authorize('update', {{ model }}::class);
+        Gate::authorize('update', {{ modelVariable }}::class);
     }
 
     /**
@@ -80,6 +80,6 @@ class {{ class }} extends Controller
      */
     public function destroy(string $id)
     {
-        Gate::authorize('update', {{ model }}::class);
+        Gate::authorize('update', {{ modelVariable }}::class);
     }
 }
