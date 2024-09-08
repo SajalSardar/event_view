@@ -40,12 +40,8 @@ class MenuPolicy {
      * Determine whether the user can update the model.
      */
     public function update(User $user, Menu $menu): bool {
-        if ($user->can('update')) {
+        if ($user->can('menu update')) {
             return true;
-        }
-
-        if ($user->can('update own')) {
-            return $user->id == $menu->user_id;
         }
 
     }
@@ -54,12 +50,8 @@ class MenuPolicy {
      * Determine whether the user can delete the model.
      */
     public function delete(User $user, Menu $menu): bool {
-        if ($user->can('delete')) {
+        if ($user->can('menu delete')) {
             return true;
-        }
-
-        if ($user->can('delete own')) {
-            return $user->id == $menu->user_id;
         }
     }
 
@@ -67,11 +59,8 @@ class MenuPolicy {
      * Determine whether the user can restore the model.
      */
     public function restore(User $user, Menu $menu): bool {
-        if ($user->can('restore')) {
+        if ($user->can('menu restore')) {
             return true;
-        }
-        if ($user->can('restore own')) {
-            return $user->id == $menu->user_id;
         }
     }
 
@@ -79,11 +68,8 @@ class MenuPolicy {
      * Determine whether the user can permanently delete the model.
      */
     public function forceDelete(User $user, Menu $menu): bool {
-        if ($user->can('force delete')) {
+        if ($user->can('menu force delete')) {
             return true;
-        }
-        if ($user->can('force delete own')) {
-            return $user->id == $menu->user_id;
         }
     }
 }

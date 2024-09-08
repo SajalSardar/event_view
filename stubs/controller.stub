@@ -25,7 +25,7 @@ class {{ class }} extends Controller
      */
     public function displayListDatatable()
     {
-        Gate::authorize('view', {{ modelVariable }}::class);
+        Gate::authorize('view', {{ model }}::class);
         
         ${{ modelVariable }} = Cache::remember('name_list', 60 * 60, function () {
             return {{ model }}::get();
@@ -46,7 +46,7 @@ class {{ class }} extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize('crate', {{ modelVariable }}::class);
+        Gate::authorize('crate', {{ model }}::class);
     }
 
     /**
@@ -72,7 +72,7 @@ class {{ class }} extends Controller
      */
     public function update(Request $request, string $id)
     {
-        Gate::authorize('update', {{ modelVariable }}::class);
+        Gate::authorize('update', {{ model }}::class);
     }
 
     /**
@@ -80,6 +80,6 @@ class {{ class }} extends Controller
      */
     public function destroy(string $id)
     {
-        Gate::authorize('update', {{ modelVariable }}::class);
+        Gate::authorize('update', {{ model }}::class);
     }
 }

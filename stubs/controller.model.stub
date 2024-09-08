@@ -57,7 +57,7 @@ class {{ class }} extends Controller
     public function show({{ model }} ${{ modelVariable }})
     {
         //
-        Gate::authorize('view',  {{ model }}::class);
+        Gate::authorize('view',  ${{ modelVariable }});
         return view('{{ modelVariable }}.show');
     }
 
@@ -66,7 +66,7 @@ class {{ class }} extends Controller
      */
     public function edit({{ model }} ${{ modelVariable }})
     {
-        Gate::authorize('update', {{ model }}::class);
+        Gate::authorize('update', ${{ modelVariable }});
         return view('{{ modelVariable }}.edit');
     }
 
@@ -75,7 +75,7 @@ class {{ class }} extends Controller
      */
     public function update({{ updateRequest }} $request, {{ model }} ${{ modelVariable }})
     {
-        Gate::authorize('update',  {{ model }}::class);
+        Gate::authorize('update',  ${{ modelVariable }});
     }
 
     /**
@@ -83,6 +83,6 @@ class {{ class }} extends Controller
      */
     public function destroy({{ model }} ${{ modelVariable }})
     {
-        Gate::authorize('delete',  {{ model }}::class);
+        Gate::authorize('delete',  ${{ modelVariable }});
     }
 }

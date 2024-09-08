@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
@@ -22,7 +21,7 @@ class MenuController extends Controller {
      * Display a listing of the data table resource.
      */
     public function displayListDatatable() {
-        Gate::authorize('view', [User::class, Menu::class]);
+        Gate::authorize('view', Menu::class);
 
         $menu = Cache::remember('name_list', 60 * 60, function () {
             return Menu::get();
@@ -33,7 +32,7 @@ class MenuController extends Controller {
      * Show the form for creating a new resource.
      */
     public function create() {
-        Gate::authorize('create', [User::class, Menu::class]);
+        Gate::authorize('create', Menu::class);
         return view('menu.create');
     }
 
@@ -42,7 +41,7 @@ class MenuController extends Controller {
      */
     public function store(Request $request) {
         //
-        Gate::authorize('create', [User::class, Menu::class]);
+        Gate::authorize('create', Menu::class);
 
     }
 
@@ -51,7 +50,7 @@ class MenuController extends Controller {
      */
     public function show(Menu $menu) {
         //
-        Gate::authorize('view', [User::class, Menu::class]);
+        Gate::authorize('view', $menu);
         return view('menu.show');
     }
 
@@ -59,7 +58,7 @@ class MenuController extends Controller {
      * Show the form for editing the specified resource.
      */
     public function edit(Menu $menu) {
-        Gate::authorize('update', [User::class, Menu::class]);
+        Gate::authorize('update', $menu);
         return view('menu.edit');
     }
 
@@ -67,13 +66,13 @@ class MenuController extends Controller {
      * Update the specified resource in storage.
      */
     public function update(Request $request, Menu $menu) {
-        Gate::authorize('update', [User::class, Menu::class]);
+        Gate::authorize('update', $menu);
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Menu $menu) {
-        Gate::authorize('delete', [User::class, Menu::class]);
+        Gate::authorize('delete', $menu);
     }
 }
