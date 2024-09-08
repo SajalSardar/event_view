@@ -1,23 +1,9 @@
 <x-app-layout>
+    <x-base.table>
 
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+    </x-base.table>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __('modules/label.login') }}
-                    <br>
-                    {{ __('modules/label.email') }}
-                    {{ __('modules/label.text') }}
-                </div>
-            </div>
-        </div>
+    <x-base.form>
 
-    </div>
-
+    </x-base.form>
 </x-app-layout>

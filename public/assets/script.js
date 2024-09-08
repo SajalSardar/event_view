@@ -203,3 +203,43 @@ function generateRandomData(n) {
     return data
 }
 // end: Chart
+
+/**
+ * Dropdown menu toggle 
+ */
+
+let toggleMenuButton = document.querySelector('.toggle-menu-button');
+let toggleMenu = document.querySelector('.toggle-menu');
+
+toggleMenuButton.addEventListener('click', function (e) {
+    if (toggleMenu.style.display == 'none') {
+        toggleMenu.style.display = 'block';
+    } else {
+        toggleMenu.style.display = 'none';
+    }
+})
+
+/**
+ * Dropdown item in notification and email notification
+ */
+
+let toggleNotificationButton = document.querySelector('.toggle-notification-button');
+let toggleNotificationBox = document.querySelector('.toggle-notification-box');
+
+toggleNotificationButton.addEventListener('click', function (e) {
+    if (toggleNotificationBox.style.display == 'none') {
+        toggleNotificationBox.style.display = 'block';
+    } else {
+        toggleNotificationBox.style.display = 'none';
+    }
+})
+let toggleEmailNotificationButton = document.querySelector('.toggle-email-notification-button');
+let toggleEmailNotificationBox = document.querySelector('.toggle-email-notification-box');
+
+toggleEmailNotificationButton.addEventListener('click', function (e) {
+    if (toggleEmailNotificationBox.style.display == 'none') {
+        toggleEmailNotificationBox.style.display = 'block';
+    } else {
+        toggleEmailNotificationBox.style.display = 'none';
+    }
+})
