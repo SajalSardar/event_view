@@ -7,20 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
 
-class Menu extends Model
-{
+class Menu extends Model {
     use HasFactory, SoftDeletes;
 
-    protected static function boot()
-    {
+    protected static function boot() {
         parent::boot();
-    
+
         static::created(function () {
             Cache::forget("name_list");
         });
-    
+
         static::updated(function () {
             Cache::forget("name_list");
         });
     }
+
 }
