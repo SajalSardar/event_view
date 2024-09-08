@@ -1,13 +1,13 @@
 <?php
 
-                namespace App\Livewire\AdminUser;
+namespace App\Livewire\AdminUser;
 
-                use Livewire\Component;
+use Livewire\Component;
 
-                class CreateAdminUser extends Component
-                {
-                    public function render()
-                    {
-                        return view('livewire.create-adminuser');
-                    }
-                }
+class CreateAdminUser extends Component
+{
+    public function render()
+    {
+        return view('livewire.create-adminuser');
+    }
+}

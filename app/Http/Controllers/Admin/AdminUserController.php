@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
 
-class UserController extends Controller
+class AdminUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class UserController extends Controller
     public function displayListDatatable()
     {
         Gate::authorize('view',  User::class);
-        
+
         $User = Cache::remember('name_list', 60 * 60, function () {
             return User::get();
         });
@@ -47,7 +47,6 @@ class UserController extends Controller
     {
         //
         Gate::authorize('create', User::class);
-
     }
 
     /**

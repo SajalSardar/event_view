@@ -9,6 +9,7 @@ class LocalizationController extends Controller
 {
     /**
      * Define public function locale to change language
+     * @param $lang
      */
     public function locale($lang)
     {
