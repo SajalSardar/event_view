@@ -70,7 +70,7 @@ class AdminUserController extends Controller
     public function edit(User $User)
     {
         Gate::authorize('update', User::class);
-        return view('User.edit');
+        return view('adminuser.edit');
     }
 
     /**

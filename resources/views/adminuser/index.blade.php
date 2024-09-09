@@ -6,6 +6,7 @@
                 <th class="text-start ps-10 py-2">Email</th>
                 <th class="text-start ps-10 py-2">Email Verified</th>
                 <th class="text-start ps-10 py-2">Role</th>
+                <th class="text-start ps-10 py-2">Action</th>
             </tr>
         </thead>
 
@@ -20,9 +21,12 @@
                             <h5 class="font-medium text-slate-900">{{ $each?->name }}</h5>
                         </div>
                     </td>
-                    <td class="p-10 font-normal text-gray-400">{!! Helper::status(0) !!}</td>
-                    <td class="p-10 font-normal text-gray-400">{{ Helper::ISOdate($each?->created_at) }}</td>
+                    <td class="p-10 font-normal text-gray-400">{{ $each?->email }}</td>
+                    <td class="p-10 font-normal text-gray-400">{{ Helper::ISOdate($each?->email_verified_at) }}</td>
                     <td class="p-10 font-normal text-gray-400">{{ $each?->roles->first()->name }}</td>
+                    <td>
+                        <x-actions.edit route="{{ route('admin.user.edit', ['user' => $each?->id]) }}" />
+                    </td>
                 </tr>
             @empty
                 <tr>

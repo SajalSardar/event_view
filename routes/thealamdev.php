@@ -10,6 +10,7 @@ Route::middleware(['auth', 'locale'])->group(function () {
             Route::controller(AdminUserController::class)->group(function () {
                 Route::get('/', 'index')->name('index');
                 Route::get('create', 'create')->name('create');
+                Route::get('edit/{user}', 'edit')->name('edit');
             });
         });
     });

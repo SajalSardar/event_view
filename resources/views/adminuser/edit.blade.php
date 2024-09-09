@@ -1,1 +1,3 @@
-<x-app-layout><livewire:update-adminuser /></x-app-layout>
+<x-app-layout>
+    <livewire:adminuser.update-adminuser />
+</x-app-layout>
