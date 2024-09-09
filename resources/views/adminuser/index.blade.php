@@ -20,8 +20,8 @@
                             <h5 class="font-medium text-slate-900">{{ $each?->name }}</h5>
                         </div>
                     </td>
-                    <td class="p-10 font-normal text-gray-400">{{ $each?->email }}</td>
-                    <td class="p-10 font-normal text-gray-400">{{ $each?->email_verified_at }}</td>
+                    <td class="p-10 font-normal text-gray-400">{{ Helper::status(1) }}</td>
+                    <td class="p-10 font-normal text-gray-400">{{ Helper::ISOdate($each?->created_at) }}</td>
                     <td class="p-10 font-normal text-gray-400">{{ $each?->roles->first()->name }}</td>
                 </tr>
             @empty
