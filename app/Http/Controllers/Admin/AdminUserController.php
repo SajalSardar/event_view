@@ -20,7 +20,8 @@ class AdminUserController extends Controller
     public function index()
     {
         Gate::authorize('view',  User::class);
-        return view('adminuser.index');
+        $collections = User::query()->with('roles')->whereNotIn('id', [1])->get();
+        return view('adminuser.index',compact('collections'));
     }
 
     /**
@@ -29,7 +30,6 @@ class AdminUserController extends Controller
     public function displayListDatatable()
     {
         Gate::authorize('view',  User::class);
-
         $User = Cache::remember('name_list', 60 * 60, function () {
             return User::get();
         });
