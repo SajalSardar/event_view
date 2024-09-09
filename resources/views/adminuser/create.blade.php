@@ -1,1 +1,3 @@
-<x-app-layout><livewire:create-adminuser /></x-app-layout>
+<x-app-layout>
+    @include('livewire.adminuser.create-adminuser')
+</x-app-layout>

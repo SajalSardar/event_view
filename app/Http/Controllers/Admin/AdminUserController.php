@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Console\View\Components\Factory;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
+use Spatie\Permission\Models\Role;
 
 class AdminUserController extends Controller
 {
@@ -16,7 +20,7 @@ class AdminUserController extends Controller
     public function index()
     {
         Gate::authorize('view',  User::class);
-        return view("User.index");
+        return view('adminuser.index');
     }
 
     /**
@@ -33,11 +37,13 @@ class AdminUserController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * @return Application|Factory|View
      */
-    public function create()
+    public function create(): Application |Factory|View
     {
+        $roles = Role::query()->whereNotIn('id', [1])->get();
         Gate::authorize('create', User::class);
-        return view('User.create');
+        return view('adminuser.create', compact('roles'));
     }
 
     /**
