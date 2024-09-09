@@ -9,12 +9,14 @@
     <title>{{ config('app.name', 'Event Metro') }}</title>
 
     <!-- Style css  !-->
-    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @livewireStyles
+
+    @yield('style')
 </head>
 
 <body class="text-gray-800 font-inter flex items-center justify-center" style="background: #edf2f7;">
@@ -38,10 +40,13 @@
 
     </main>
 
-    @livewireScripts
+
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{{ asset('assets/script.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    @livewireScripts
+    @yield('script')
 
 </body>
 
