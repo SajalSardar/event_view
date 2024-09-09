@@ -21,7 +21,10 @@ class Helper
      */
     public static function status(?string $status): string
     {
-        return $status == '1' ? "<span class='badge badge-soft-success  my-1  me-2'>Active</span>" : "<span class='badge badge-soft-danger my-1  me-2'>Inactive</span>";
+        return $status == '1' ? '<span class="inline-flex items-center bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
+                <span class="w-2 h-2 me-1 bg-red-500 rounded-full"></span>
+                Unavailable
+            </span>' : "<span class='badge badge-soft-danger my-1  me-2'>Inactive</span>";
     }
 
     /**
