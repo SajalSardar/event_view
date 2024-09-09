@@ -41,9 +41,8 @@ class AdminUserController extends Controller
      */
     public function create(): Application |Factory|View
     {
-        $roles = Role::query()->whereNotIn('id', [1])->get();
         Gate::authorize('create', User::class);
-        return view('adminuser.create', compact('roles'));
+        return view('adminuser.create');
     }
 
     /**
