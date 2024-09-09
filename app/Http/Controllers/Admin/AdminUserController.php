@@ -67,10 +67,10 @@ class AdminUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $User)
+    public function edit(User $user)
     {
         Gate::authorize('update', User::class);
-        return view('adminuser.edit');
+        return view('adminuser.edit',compact('user'));
     }
 
     /**
