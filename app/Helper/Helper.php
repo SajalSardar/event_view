@@ -21,11 +21,19 @@ class Helper
      */
     public static function status(?string $status): string
     {
-        return $status == '1' ? '<span class="inline-flex items-center bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
-                <span class="w-2 h-2 me-1 bg-red-500 rounded-full"></span>
-                Unavailable
-            </span>' : "<span class='badge badge-soft-danger my-1  me-2'>Inactive</span>";
+        if ($status === '1') {
+            return ' <span class="inline-flex items-center bg-green-100 text-white text-xs font-normal px-2.5 py-0.5 rounded-full dark:bg-green-600 dark:text-green-300">
+                        <span class="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
+                        Available
+                    </span>';
+        } else {
+            return '<span class="inline-flex items-center bg-red-100 text-white text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-red-600 dark:text-red-300">
+                        <span class="w-2 h-2 me-1 bg-red-500 rounded-full"></span>
+                        Unavailable
+                    </span>';
+        }
     }
+
 
     /**
      * Define public function for show date in human readable form
