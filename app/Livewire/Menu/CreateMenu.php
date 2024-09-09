@@ -4,6 +4,7 @@ namespace App\Livewire\Menu;
 
 use Livewire\Component;
 
+<<<<<<< HEAD
 class CreateMenu extends Component
 {
     public function render()
@@ -11,3 +12,10 @@ class CreateMenu extends Component
         return view('livewire.create-menu');
     }
 }
+=======
+class CreateMenu extends Component {
+    public function render() {
+        return view('livewire.menu.create-menu');
+    }
+}
+>>>>>>> master

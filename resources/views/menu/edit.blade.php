@@ -1,1 +1,1 @@
-<x-app-layout><livewire:update-menu /></x-app-layout>
+<x-app-layout><livewire:menu.update-menu /></x-app-layout>

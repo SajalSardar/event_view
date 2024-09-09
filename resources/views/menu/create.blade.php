@@ -1,1 +1,3 @@
-<x-app-layout><livewire:create-menu /></x-app-layout>
+<x-app-layout>
+    <livewire:menu.create-menu />
+</x-app-layout>
