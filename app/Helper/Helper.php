@@ -34,7 +34,6 @@ class Helper
         }
     }
 
-
     /**
      * Define public function for show date in human readable form
      * @param string $date

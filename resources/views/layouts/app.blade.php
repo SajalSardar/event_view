@@ -10,13 +10,10 @@
 
         <!-- Style css  !-->
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
-
         @livewireStyles
-
         @yield('style')
     </head>
 
@@ -40,9 +37,6 @@
         </div>
 
     </main>
-
-
-
 
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

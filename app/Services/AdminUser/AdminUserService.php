@@ -26,4 +26,10 @@ class AdminUserService
 
         return $user->assignRole($roleName);
     }
+
+    public function update($model, $request): bool
+    {
+        $response = $model->update($request->all());
+        return $response;
+    }
 }

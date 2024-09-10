@@ -4,6 +4,9 @@ namespace App\Livewire\AdminUser;
 
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
+use App\Services\AdminUser\AdminUserService;
 use App\Livewire\Forms\AdminUserUpdateRequest;
 
 class UpdateAdminUser extends Component
@@ -17,7 +20,7 @@ class UpdateAdminUser extends Component
     /**
      * Define public property $user;
      */
-    public $user;
+    public array|object $user;
 
     /**
      * Define public form method AdminUserUpdateRequest $form;
@@ -34,8 +37,18 @@ class UpdateAdminUser extends Component
         $this->form->email = $this->user?->email;
         $this->form->password = $this->user?->password;
         $this->form->role_id = $this->user?->role_id;
-        // $this->form->validate();
-         
+    }
+
+    /**
+     * Define public method update() to update the resourses
+     * @return void
+     */
+    public function update(AdminUserService $service): void
+    {
+        $this->form->validate();
+        $isUpdate = $service->update($this->user, $this->form);
+        $response = $isUpdate ? 'Data has been update sccessfully !' : 'Something went wrong !';
+        flash()->success($response);
     }
 
     public function render()
