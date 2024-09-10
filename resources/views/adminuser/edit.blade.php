@@ -5,6 +5,6 @@
              <p>Please fill the input field where sign <span class="text-red-500">(*) </span> have.</p>
          </header>
          <hr>
-         <livewire:adminuser.update-adminuser />
+         @livewire('adminuser.update-adminuser', ['user' => $user])
      </div>
  </x-app-layout>

@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Illuminate\Contracts\View\View;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Cache;
+use App\Livewire\AdminUser\UpdateAdminUser;
+use App\Livewire\Forms\AdminUserUpdateRequest;
 use Illuminate\Console\View\Components\Factory;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Gate;
-use Spatie\Permission\Models\Role;
 
 class AdminUserController extends Controller
 {
@@ -21,7 +23,7 @@ class AdminUserController extends Controller
     {
         Gate::authorize('view',  User::class);
         $collections = User::query()->with('roles')->whereNotIn('id', [1])->get();
-        return view('adminuser.index',compact('collections'));
+        return view('adminuser.index', compact('collections'));
     }
 
     /**
@@ -70,7 +72,9 @@ class AdminUserController extends Controller
     public function edit(User $user)
     {
         Gate::authorize('update', User::class);
-        return view('adminuser.edit',compact('user'));
+        $obj = new UpdateAdminUser();
+        $obj->mount($user);
+        return view('adminuser.edit', compact('user'));
     }
 
     /**
