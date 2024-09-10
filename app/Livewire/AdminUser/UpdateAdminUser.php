@@ -15,7 +15,7 @@ class UpdateAdminUser extends Component
     public array|object $roles;
 
     /**
-     * Define public property $prev_user;
+     * Define public property $user;
      */
     public $user;
 
@@ -28,19 +28,18 @@ class UpdateAdminUser extends Component
      * Define public method mount()
      * @return void
      */
-    public function mount($user): void
+    public function mount(): void
     {
         $this->form->validate();
-
-        $this->form->name = $user?->name;
-        $this->form->email = $user?->email;
-        $this->form->password = $user?->password;
-        $this->form->role_id = $user?->role_id;
+        $this->form->name = $this->user?->name;
+        $this->form->email = $this->user?->email;
+        $this->form->password = $this->user?->password;
+        $this->form->role_id = $this->user?->role_id;
     }
 
     public function render()
     {
         $this->roles = Role::query()->whereNotIn('id', [1])->get();
-        return view('livewire.adminuser.update-adminuser', ['user' => $this->user]);
+        return view('livewire.adminuser.update-adminuser');
     }
 }

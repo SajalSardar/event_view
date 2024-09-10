@@ -72,8 +72,6 @@ class AdminUserController extends Controller
     public function edit(User $user)
     {
         Gate::authorize('update', User::class);
-        $obj = new UpdateAdminUser();
-        $obj->mount($user);
         return view('adminuser.edit', compact('user'));
     }
 
