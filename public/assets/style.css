@@ -1,6 +1,9 @@
  *,
+
  ::before,
  ::after {
+     margin: 0;
+     padding: 0;
      --tw-translate-x: 0;
      --tw-translate-y: 0;
      --tw-rotate: 0;
@@ -31,13 +34,6 @@
      --tw-translate-x: -100%;
      transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
  }
-/* 
- body {
-     font-family: "Inter", sans-serif;
-     font-optical-sizing: auto;
-     font-weight: 600;
-     font-style: normal;
- } */
 
  @media (min-width: 768px) {
      .md\:hidden {
@@ -51,14 +47,10 @@
  }
 
  /* navbar css */
- * {
-     margin: 0;
-     padding: 0;
- }
 
  .navbar {
      /* margin-left: 256px; */
-     height: 70px;
+     height: 76px;
      background: #F8FAFF;
      position: fixed;
      left: 0;
