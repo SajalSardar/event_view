@@ -9,49 +9,47 @@
         <title>{{ config('app.name', 'Event Metro') }}</title>
 
         <!-- Style css  !-->
-        <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+
         @livewireStyles
+
+        @yield('style')
     </head>
 
-    <body class="text-gray-800 font-inter flex items-center justify-center" style="background: #edf2f7;">
+    <!-- Sidenav start -->
+    @include('layouts.partials.sidebar')
+    <!-- Sidenav end -->
 
-        <!-- Sidenav start -->
-        @include('layouts.partials.sidebar')
-        <!-- Sidenav end -->
+    <main class="w-full bg-white md:w-[calc(100%-256px)] md:ml-64 min-h-screen transition-all main">
+        <!-- Navbar Start -->
+        @include('layouts.partials.navbar')
+        <!-- Navbar End -->
+        <div class="pt-8 px-10">
 
-        <main class="w-full bg-white md:w-[calc(100%-256px)] md:ml-64 min-h-screen transition-all main">
-            <!-- Navbar Start -->
-            @include('layouts.partials.navbar')
-            <!-- Navbar End -->
-            <div class="pt-8 px-10">
+            <!-- Breadcrumb Start -->
+            @include('layouts.partials.breadcrumb')
+            <!-- Breadcrumb End -->
 
-                <!-- Breadcrumb Start -->
-                @include('layouts.partials.breadcrumb')
-                <!-- Breadcrumb End -->
-
-                <div class="{{ Route::is('*.index') ? 'px-0' : 'md:px-12 sm:px-0' }} mt-5">
-                    {{ $slot }}
-                </div>
+            <div class="{{ Route::is('*.index') ? 'px-0' : 'md:px-12 sm:px-0' }} mt-5">
+                {{ $slot }}
             </div>
+        </div>
 
-        </main>
+    </main>
 
-        @livewireScripts
-        <script src="https://unpkg.com/@popperjs/core@2"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="{{ asset('assets/script.js') }}"></script>
+
+
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    @livewireScripts
+    @yield('script')
 
     </body>
 

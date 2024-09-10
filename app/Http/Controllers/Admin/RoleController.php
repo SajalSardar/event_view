@@ -60,4 +60,10 @@ class RoleController extends Controller {
         return back();
     }
 
+    public function switchAccount(Request $request) {
+
+        $request->session()->put('login_role', $request->role);
+        return back();
+    }
+
 }

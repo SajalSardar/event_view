@@ -18,6 +18,9 @@ Route::middleware('auth')->prefix('dashboard/')->name('dashboard.')->group(funct
     Route::post('create-user-role', [RoleController::class, 'store'])->name('role.store');
     Route::get('edit-user-role/{id}', [RoleController::class, 'edit'])->name('role.edit');
     Route::put('update-user-role/{id}', [RoleController::class, 'update'])->name('role.update');
+
+    // change role in header option
+    Route::post('switch-accont', [RoleController::class, 'switchAccount'])->name('role.swotch');
 });
 // test route
 

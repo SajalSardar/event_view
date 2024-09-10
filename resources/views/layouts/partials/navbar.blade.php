@@ -3,10 +3,14 @@
         <div class="hamberger">
             <button type="button" class="text-lg text-gray-900 font-semibold sidebar-toggle">
                 <i class="ri-menu-line">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 5H14" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M4 12H20" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M4 19H20" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 5H14" stroke="#666666" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M4 12H20" stroke="#666666" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M4 19H20" stroke="#666666" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
                 </i>
             </button>
@@ -24,19 +28,33 @@
         </div>
 
         <div class="user-type">
-            <select class="user-type-select border border-slate-200 rounded bg-transparent text-sm font-normal text-center">
-                <option selected disabled>-Role-</option>
-                <option value="1">Organizer</option>
-                <option value="1">Attendee</option>
-            </select>
+            @use('Spatie\Permission\Models\Role')
+            @php
+                $user = auth()->user()->load('roles');
+                $loginRole = Session::has('login_role') ? Session::get('login_role') : '';
+            @endphp
+            <form action="{{ route('dashboard.role.swotch') }}" method="POST" x-data
+                @change="submitSwitchAccount($event)">
+                @csrf
+                <select
+                    class="user-type-select border border-slate-200 rounded bg-transparent text-sm font-normal text-center"
+                    onchange="accountSwitch()" id="accountSelect" name="role">
+                    @foreach ($user->roles as $role)
+                        <option value="{{ $role->name }}" {{ $loginRole === $role->name ? 'selected' : '' }}>
+                            {{ Str::ucfirst($role->name) }}</option>
+                    @endforeach
+                </select>
+            </form>
         </div>
-
         <div class="lang">
             <img class="sm:hidden md:block" src="{{ asset('assets/icons/eng.png') }}" alt="country">
 
-            <select onchange="changeLanguage(this.value)" class="border-none bg-transparent text-center font-normal text-sm">
-                <option {{ session()->has('locale') && session()->get('locale') == 'en' ? 'selected' : '' }} value="en">ENG</option>
-                <option {{ session()->has('locale') && session()->get('locale') == 'bn' ? 'selected' : '' }} value="bn">BN</option>
+            <select onchange="changeLanguage(this.value)"
+                class="border-none bg-transparent text-center font-normal text-sm">
+                <option {{ session()->has('locale') && session()->get('locale') == 'en' ? 'selected' : '' }}
+                    value="en">ENG</option>
+                <option {{ session()->has('locale') && session()->get('locale') == 'bn' ? 'selected' : '' }}
+                    value="bn">BN</option>
             </select>
         </div>
 
@@ -52,7 +70,8 @@
                 </div>
 
                 <!-- Notification box start  !-->
-                <div class="toggle-notification-box absolute w-96 h-96 bg-white border border-slate-300 rounded shadow top-12 right-0 sm:-right-10 overflow-auto" style="display: none">
+                <div class="toggle-notification-box absolute w-96 h-96 bg-white border border-slate-300 rounded shadow top-12 right-0 sm:-right-10 overflow-auto"
+                    style="display: none">
                     @for ($i = 1; $i < 10; $i++)
                         <a href="#">
                             <div class="p-4 flex items-center hover:bg-slate-200">
@@ -71,8 +90,11 @@
             <div class="relative md:ml-3 sm:ml-1 cursor-pointer toggle-email-notification-button">
                 <svg width="24" height="24" class="sm:w-4 sm:h-4 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1_4773)">
-                        <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M22 6L12 13L2 6" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+                            stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M22 6L12 13L2 6" stroke="#666666" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </g>
                     <defs>
                         <clipPath id="clip0_1_4773">
@@ -81,13 +103,15 @@
                     </defs>
                 </svg>
 
-                <div class="md:w-5 md:h-5 sm:w-4 sm:h-4 bg-red-500 rounded-full text-center text-white text-xs absolute -top-2 -end-2">
+                <div
+                    class="md:w-5 md:h-5 sm:w-4 sm:h-4 bg-red-500 rounded-full text-center text-white text-xs absolute -top-2 -end-2">
                     10
                     <div class="absolute top-0 start-0 rounded-full -z-10 animate-ping bg-red-400 w-full h-full"></div>
                 </div>
 
                 <!--Email Notification box start  !-->
-                <div class="toggle-email-notification-box absolute w-96 h-96 bg-white border border-slate-300 rounded shadow top-12 right-0 sm:-right-10 overflow-auto" style="display: none">
+                <div class="toggle-email-notification-box absolute w-96 h-96 bg-white border border-slate-300 rounded shadow top-12 right-0 sm:-right-10 overflow-auto"
+                    style="display: none">
                     @for ($i = 1; $i < 10; $i++)
                         <a href="#">
                             <div class="p-4 flex items-center hover:bg-slate-200">

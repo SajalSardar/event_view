@@ -7,6 +7,7 @@ use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
+use Spatie\Permission\Models\Role;
 
 class MenuController extends Controller {
     /**
@@ -33,7 +34,9 @@ class MenuController extends Controller {
      */
     public function create() {
         Gate::authorize('create', Menu::class);
-        return view('menu.create');
+        $roles        = Role::where('name', '!=', 'super-admin')->get();
+        $parent_menus = Menu::where('parent_id', null)->get();
+        return view('menu.create', compact('roles', 'parent_menus'));
     }
 
     /**
