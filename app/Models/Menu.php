@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 
 class Menu extends Model {
     use HasFactory, SoftDeletes;
-
+    protected $guarded = ['id'];
     protected static function boot() {
         parent::boot();
 

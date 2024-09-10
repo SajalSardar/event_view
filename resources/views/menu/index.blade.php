@@ -1,6 +1,3 @@
 <x-app-layout>
-    demo page
-    @can('menu view list')
-        <p>permission</p>
-    @endcan
+    <a href="{{ route('dashboard.menu.create') }}">Add menu</a>
 </x-app-layout>
