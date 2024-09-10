@@ -4,7 +4,7 @@
     </a>
 
     <ul class="mt-4 bg-primary-500 h-full">
-        <li class="group py-5 px-5 relative">
+        <li class="group py-4 px-5 relative">
             <span class="flex items-center {{ Route::is('dashboard') ? 'before:absolute before:rounded-l-xl before:content-[""] before:w-[4px] before:h-full before:bg-primary-400 before:top-0 before:right-0' : '' }}">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2 18C2 16.4596 2 15.6893 2.34673 15.1235C2.54074 14.8069 2.80693 14.5407 3.12353 14.3467C3.68934 14 4.45956 14 6 14C7.54044 14 8.31066 14 8.87647 14.3467C9.19307 14.5407 9.45926 14.8069 9.65327 15.1235C10 15.6893 10 16.4596 10 18C10 19.5404 10 20.3107 9.65327 20.8765C9.45926 21.1931 9.19307 21.4593 8.87647 21.6533C8.31066 22 7.54044 22 6 22C4.45956 22 3.68934 22 3.12353 21.6533C2.80693 21.4593 2.54074 21.1931 2.34673 20.8765C2 20.3107 2 19.5404 2 18Z" stroke="#6D4DFF" stroke-width="1.5" />
@@ -13,14 +13,14 @@
                     <path d="M14 6C14 4.45956 14 3.68934 14.3467 3.12353C14.5407 2.80693 14.8069 2.54074 15.1235 2.34673C15.6893 2 16.4596 2 18 2C19.5404 2 20.3107 2 20.8765 2.34673C21.1931 2.54074 21.4593 2.80693 21.6533 3.12353C22 3.68934 22 4.45956 22 6C22 7.54044 22 8.31066 21.6533 8.87647C21.4593 9.19307 21.1931 9.45926 20.8765 9.65327C20.3107 10 19.5404 10 18 10C16.4596 10 15.6893 10 15.1235 9.65327C14.8069 9.45926 14.5407 9.19307 14.3467 8.87647C14 8.31066 14 7.54044 14 6Z" stroke="#6D4DFF" stroke-width="1.5" />
                 </svg>
 
-                <a href="#" class="flex font-semibold items-center text-gray-900 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                <a href="{{ route('dashboard') }}" class="flex font-semibold items-center text-gray-900 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                     <i class="ri-home-2-line mr-3 text-lg"></i>
-                    <span class="text-sm">Dashboard</span>
+                    <span class="text-base font-inter font-semibold">Dashboard</span>
                 </a>
             </span>
         </li>
 
-        <li class="group pb-5 px-5 relative">
+        <li class="group py-4 px-5 relative">
             <span class="flex items-center before:absolute before:rounded-l-xl before:content-[''] before:w-[4px] before:h-full before:bg-primary-400 before:top-0 before:right-0">
                 <svg class="inline-block" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11 13H16M8 13H8.00898M13 17H8M16 17H15.991" stroke="#6D4DFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -31,7 +31,7 @@
 
                 <a href="#" style="display: inline" class="flex font-semibold items-center text-gray-900 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white sidebar-dropdown-toggle">
                     <i class='bx bx-user mr-3 text-lg'></i>
-                    <span class="text-sm">Events</span>
+                    <span class="text-base font-inter font-semibold">Events</span>
                     <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
                 </a>
             </span>
@@ -44,7 +44,7 @@
                         <path d="M12 17.5V18.5M12 17.5C11.1324 17.5 10.368 17.0581 9.91974 16.387M12 17.5C12.8676 17.5 13.632 17.0581 14.0803 16.387M9.91974 16.387L9.00032 17M9.91974 16.387C9.65459 15.9901 9.5 15.5131 9.5 15C9.5 14.4869 9.65455 14.01 9.91964 13.6131M14.0803 16.387L14.9997 17M14.0803 16.387C14.3454 15.9901 14.5 15.5131 14.5 15C14.5 14.4869 14.3454 14.01 14.0804 13.6131M12 12.5C12.8677 12.5 13.6321 12.942 14.0804 13.6131M12 12.5C11.1323 12.5 10.3679 12.942 9.91964 13.6131M12 12.5V11.5M14.0804 13.6131L15 13M9.91964 13.6131L9 13" stroke="#6D4DFF" stroke-width="1.5" stroke-linecap="round" />
                     </svg>
 
-                    <a href="#" class="pl-3 text-gray-900 text-sm flex items-center hover:text-[#f84525]">Create
+                    <a href="#" class="pl-3 text-gray-900 text-base font-inter font-medium flex items-center hover:text-[#f84525]">Create
                         Events
                     </a>
                 </li>
@@ -55,13 +55,13 @@
                         <path d="M2.5 12.2432C2.5 7.88594 2.5 5.70728 3.75212 4.35364C5.00424 3 7.01949 3 11.05 3H12.95C16.9805 3 18.9958 3 20.2479 4.35364C21.5 5.70728 21.5 7.88594 21.5 12.2432V12.7568C21.5 17.1141 21.5 19.2927 20.2479 20.6464C18.9958 22 16.9805 22 12.95 22H11.05C7.01949 22 5.00424 22 3.75212 20.6464C2.5 19.2927 2.5 17.1141 2.5 12.7568V12.2432Z" stroke="#6D4DFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M12 17.5V18.5M12 17.5C11.1324 17.5 10.368 17.0581 9.91974 16.387M12 17.5C12.8676 17.5 13.632 17.0581 14.0803 16.387M9.91974 16.387L9.00032 17M9.91974 16.387C9.65459 15.9901 9.5 15.5131 9.5 15C9.5 14.4869 9.65455 14.01 9.91964 13.6131M14.0803 16.387L14.9997 17M14.0803 16.387C14.3454 15.9901 14.5 15.5131 14.5 15C14.5 14.4869 14.3454 14.01 14.0804 13.6131M12 12.5C12.8677 12.5 13.6321 12.942 14.0804 13.6131M12 12.5C11.1323 12.5 10.3679 12.942 9.91964 13.6131M12 12.5V11.5M14.0804 13.6131L15 13M9.91964 13.6131L9 13" stroke="#6D4DFF" stroke-width="1.5" stroke-linecap="round" />
                     </svg>
-                    <a href="" class="pl-3 text-gray-900 text-sm flex items-center hover:text-[#f84525]">Manage
+                    <a href="" class="pl-3 text-gray-900 text-base font-inter font-medium flex items-center hover:text-[#f84525]">Manage
                         Events</a>
                 </li>
             </ul>
         </li>
 
-        <li class="group pb-5 px-5 relative">
+        <li class="group py-4 px-5 relative">
             <span class="flex items-center {{ Route::is('admin.user.create') ? 'before:absolute before:rounded-l-xl before:content-[""] before:w-[4px] before:h-full before:bg-primary-400 before:top-0 before:right-0' : '' }}">
                 <svg class="inline-block" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12Z" stroke="#6D4DFF" stroke-width="1.5" />
@@ -72,7 +72,7 @@
 
                 <a href="#" style="display: inline" class="flex font-semibold items-center text-gray-900 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white sidebar-dropdown-toggle">
                     <i class='bx bx-user mr-3 text-lg'></i>
-                    <span class="text-sm">{{ __('Admin') }}</span>
+                    <span class="text-base font-inter font-semibold">{{ __('Admin') }}</span>
                     <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
                 </a>
             </span>
@@ -86,7 +86,7 @@
                     </svg>
                     <a href="{{ route('admin.user.create') }}" class="flex font-semibold items-center rounded-md group-[.active]:text-green-800 group-[.selected]:text-green-800">
                         <i class="ri-home-2-line mr-3 text-lg"></i>
-                        <span class="text-sm"> {{ __('User') }}</span>
+                        <span class="text-base font-inter font-medium"> {{ __('User') }}</span>
                     </a>
                 </li>
                 <li class="mb-4 flex">
@@ -98,7 +98,7 @@
                     </svg>
                     <a href="{{ route('dashboard.module.create') }}" class="flex font-semibold items-center rounded-md group-[.active]:text-green-800 group-[.selected]:text-green-800">
                         <i class="ri-home-2-line mr-3 text-lg"></i>
-                        <span class="text-sm"> {{ __('Module') }}</span>
+                        <span class="text-base font-inter font-medium"> {{ __('Module') }}</span>
                     </a>
                 </li>
                 <li class="mb-4 flex">
@@ -109,7 +109,7 @@
                         <path d="M12 18V22" stroke="#6D4DFF" stroke-width="1.5" />
                         <path d="M8 22H16" stroke="#6D4DFF" stroke-width="1.5" stroke-linecap="round" />
                     </svg>
-                    <a href="{{ route('dashboard.menu.index') }}" class="pl-3 text-gray-900 text-sm flex items-center hover:text-[#f84525]">{{ __('Menus') }}</a>
+                    <a href="{{ route('dashboard.menu.index') }}" class="pl-3 text-gray-900 text-base font-inter font-medium flex items-center hover:text-[#f84525]">{{ __('Menus') }}</a>
                 </li>
                 <li class="mb-4 flex">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -119,13 +119,13 @@
                         <path d="M12 18V22" stroke="#6D4DFF" stroke-width="1.5" />
                         <path d="M8 22H16" stroke="#6D4DFF" stroke-width="1.5" stroke-linecap="round" />
                     </svg>
-                    <a href="{{ route('dashboard.role.index') }}" class="pl-3 text-gray-900 text-sm flex items-center hover:text-[#f84525]">{{ __('Role') }}</a>
+                    <a href="{{ route('dashboard.role.index') }}" class="pl-3 text-gray-900 text-base font-inter font-medium flex items-center hover:text-[#f84525]">{{ __('Role') }}</a>
                 </li>
 
             </ul>
         </li>
 
-        <li class="group pb-5 px-5 relative">
+        <li class="group py-4 px-5 relative">
             <span class="flex items-center before:absolute before:rounded-l-xl before:content-[''] before:w-[4px] before:h-full before:bg-primary-400 before:top-0 before:right-0">
                 <svg class="inline-block" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12Z" stroke="#6D4DFF" stroke-width="1.5" />
@@ -136,7 +136,7 @@
 
                 <a href="#" style="display: inline" class="flex font-semibold items-center text-gray-900 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white sidebar-dropdown-toggle">
                     <i class='bx bx-user mr-3 text-lg'></i>
-                    <span class="text-sm">Settings</span>
+                    <span class="text-base font-inter font-semibold">Settings</span>
                     <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
                 </a>
             </span>
@@ -151,7 +151,7 @@
                     </svg>
 
 
-                    <a href="#" class="pl-3 text-gray-900 text-sm flex items-center hover:text-[#f84525]">Platform Seetings</a>
+                    <a href="#" class="pl-3 text-gray-900 text-base font-inter font-medium flex items-center hover:text-[#f84525]">Platform Seetings</a>
                 </li>
                 <li class="mb-4 flex">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -166,7 +166,7 @@
                         <path d="M12 8H8" stroke="#6D4DFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <a href="" class="pl-3 text-gray-900 text-sm flex items-center hover:text-[#f84525]">System
+                    <a href="" class="pl-3 text-gray-900 text-base font-inter font-medium flex items-center hover:text-[#f84525]">System
                         Seetings</a>
                 </li>
             </ul>
