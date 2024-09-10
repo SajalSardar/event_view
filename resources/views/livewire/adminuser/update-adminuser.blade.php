@@ -5,7 +5,7 @@
                 <x-forms.label for="form.name" required='yes'>
                     {{ __('User Name') }}
                 </x-forms.label>
-                <x-forms.text-input type="text" wire:model.live='form.name' placeholder="User name" />
+                <x-forms.text-input type="text" wire:model.live='form.name' value="{{ $user->name }}" placeholder="User name" />
                 <x-input-error :messages="$errors->get('form.name')" class="mt-2" />
             </div>
 
@@ -13,7 +13,7 @@
                 <x-forms.label for="form.email" required='yes'>
                     {{ __('User Email') }}
                 </x-forms.label>
-                <x-forms.text-input wire:model="email" value="{{ $user?->email }}" type="email" placeholder="Enter user email" />
+                <x-forms.text-input wire:model.live="email" value="{{ $user?->email }}" type="email" placeholder="Enter user email" />
                 <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
             </div>
         </div>

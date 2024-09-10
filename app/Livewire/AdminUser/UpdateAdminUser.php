@@ -20,7 +20,7 @@ class UpdateAdminUser extends Component
     public $user;
 
     /**
-     * Define public form method AdminUserCreateRequest $form;
+     * Define public form method AdminUserUpdateRequest $form;
      */
     public AdminUserUpdateRequest $form;
 
@@ -30,11 +30,12 @@ class UpdateAdminUser extends Component
      */
     public function mount(): void
     {
-        $this->form->validate();
         $this->form->name = $this->user?->name;
         $this->form->email = $this->user?->email;
         $this->form->password = $this->user?->password;
         $this->form->role_id = $this->user?->role_id;
+        // $this->form->validate();
+         
     }
 
     public function render()
