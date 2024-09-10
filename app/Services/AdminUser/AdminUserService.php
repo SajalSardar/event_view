@@ -3,6 +3,7 @@
 namespace App\Services\AdminUser;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
@@ -27,9 +28,16 @@ class AdminUserService
         return $user->assignRole($roleName);
     }
 
-    public function update($model, $request): bool
+    /**
+     * Define public method update to update the resourses
+     * @param Model $model
+     * @param $request
+     * @return bool
+     */
+    public function update(Model $model, $request): bool
     {
         $response = $model->update($request->all());
         return $response;
     }
 }
+ 
