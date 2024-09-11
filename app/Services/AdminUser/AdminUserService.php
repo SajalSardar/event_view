@@ -24,7 +24,6 @@ class AdminUserService
         ]);
 
         $roleName = Role::query()->where('id', $request->role_id)->first();
-        dd($roleName);
         return $user->assignRole($roleName);
     }
 

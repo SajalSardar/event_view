@@ -1,5 +1,11 @@
 <x-app-layout>
+
     <div class="relative overflow-x-auto bg-white">
+        <div class="flex justify-end pb-3 fixed top-24 right-10">
+            <x-actions.href href="{{ route('admin.user.create') }}">
+                Create User
+            </x-actions.href>
+        </div>
         <table class="w-full overflow-x-auto">
             <thead class="w-full bg-slate-100 mb-5">
                 <tr>
@@ -26,7 +32,10 @@
                         <td class="p-10 font-normal text-gray-400">{{ Helper::ISOdate($each?->email_verified_at) }}</td>
                         <td class="p-10 font-normal text-gray-400">{{ $each?->roles->first()->name }}</td>
                         <td>
-                            <x-actions.edit route="{{ route('admin.user.edit', ['user' => $each?->id]) }}" />
+                            <div class="flex">
+                                <x-actions.edit route="{{ route('admin.user.edit', ['user' => $each?->id]) }}" />
+                                <x-actions.delete action="{{ route('admin.user.delete', ['user' => $each?->id]) }}" />
+                            </div>
                         </td>
                     </tr>
                 @empty
