@@ -76,7 +76,7 @@
 
         <div class="p-2">
             <x-buttons.primary>
-                Add Menu
+                Update Menu
             </x-buttons.primary>
         </div>
 
