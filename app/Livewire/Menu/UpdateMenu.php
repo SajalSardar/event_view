@@ -43,7 +43,7 @@ class UpdateMenu extends Component
         $this->route = $this->menu->route;
         $this->url = $this->menu->url;
         $this->icon = $this->menu->icon;
-        // $this->role = $this->menu->role;
+        $this->role = $this->menu->role;
         $this->status = $this->menu->status;
     }
     /**
@@ -52,6 +52,7 @@ class UpdateMenu extends Component
      */
     public function update()
     {
+        dd($this);
         array_push($this->role, 'super-admin');
         $this->menu->update([
             "name"      => $this->name,
