@@ -69,7 +69,9 @@ class MenuController extends Controller
     public function edit(Menu $menu)
     {
         Gate::authorize('update', $menu);
-        return view('menu.edit');
+        $roles        = Role::where('name', '!=', 'super-admin')->get();
+        $parent_menus = Menu::where('parent_id', null)->get();
+        return view('menu.edit', compact('roles', 'parent_menus','menu'));
     }
 
     /**
