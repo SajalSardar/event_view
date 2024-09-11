@@ -1,4 +1,4 @@
-<div class="navbar sticky border border-b-slate-300">
+<div class="navbar sticky border z-1 border-b-slate-300">
     <div class="navbar-wrapper">
         <div class="hamberger">
             <button type="button" class="text-lg text-gray-900 font-semibold sidebar-toggle">

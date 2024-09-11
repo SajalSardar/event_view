@@ -1,6 +1,6 @@
 <section class="py-5">
     <form wire:submit="update">
-        <div class="flex justify-between">
+        <div class="grid md:grid-cols-2 sm:grid-cols-1 sm:gap-1 md:gap-4">
             <div class="p-2 w-full">
                 <x-forms.label for="form.name" required='yes'>
                     {{ __('User Name') }}
@@ -13,12 +13,12 @@
                 <x-forms.label for="form.email" required='yes'>
                     {{ __('User Email') }}
                 </x-forms.label>
-                <x-forms.text-input wire:model.live="email" value="{{ $user?->email }}" type="email" placeholder="Enter user email" />
+                <x-forms.text-input wire:model.live="form.email" value="{{ $user?->email }}" type="email" placeholder="Enter user email" />
                 <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
             </div>
         </div>
 
-        <div class="flex justify-between">
+        <div class="grid md:grid-cols-2 sm:grid-cols-1 sm:gap-1 md:gap-4">
             <div class="p-2 w-full">
                 <x-forms.label for="form.password" required='yes'>
                     {{ __('User password') }}
@@ -31,11 +31,10 @@
                 <x-forms.label for="role_id" required='yes'>
                     {{ __('User Role') }}
                 </x-forms.label>
-
                 <x-forms.select-input wire:model.live="form.role_id">
-                    <option selected disabled>--User Role--</option>
+                    <option disabled>--User Role--</option>
                     @forelse ($roles as $role)
-                        <option value="{{ $role?->id }}">{{ $role?->name }}</option>
+                        <option @selected(old('form.role_id', $user->roles->first()->id) == $role->id) value="{{ $role?->id }}">{{ $role?->name }}</option>
                     @empty
                         <option disabled>--No Roles Found--</option>
                     @endforelse

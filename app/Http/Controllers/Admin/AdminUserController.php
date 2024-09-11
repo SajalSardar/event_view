@@ -85,9 +85,13 @@ class AdminUserController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * @param User $user
      */
-    public function destroy(User $User)
+    public function destroy(User $user)
     {
         Gate::authorize('delete',  User::class);
+        $user->delete();
+        flash()->success('User has been deleted');
+        return back();
     }
 }
