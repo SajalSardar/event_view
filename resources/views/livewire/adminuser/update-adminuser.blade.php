@@ -1,6 +1,6 @@
 <section class="py-5">
     <form wire:submit="update">
-        <div class="flex justify-between">
+        <div class="grid md:grid-cols-2 sm:grid-cols-1 sm:gap-1 md:gap-4">
             <div class="p-2 w-full">
                 <x-forms.label for="form.name" required='yes'>
                     {{ __('User Name') }}
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="flex justify-between">
+        <div class="grid md:grid-cols-2 sm:grid-cols-1 sm:gap-1 md:gap-4">
             <div class="p-2 w-full">
                 <x-forms.label for="form.password" required='yes'>
                     {{ __('User password') }}
