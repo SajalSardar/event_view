@@ -24,7 +24,7 @@ class AdminUserService
         ]);
 
         $roleName = Role::query()->where('id', $request->role_id)->first();
-
+        dd($roleName);
         return $user->assignRole($roleName);
     }
 
@@ -32,12 +32,14 @@ class AdminUserService
      * Define public method update to update the resourses
      * @param Model $model
      * @param $request
-     * @return bool
+     * @return array|object
      */
-    public function update(Model $model, $request): bool
+    public function update(Model $model, $request):array|object
     {
-        $response = $model->update($request->all());
+        $model->update($request->all());
+        $roleName = Role::query()->where('id', $request->role_id)->first();
+        $response = $model->syncRoles($roleName);
+
         return $response;
     }
 }
- 

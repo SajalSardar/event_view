@@ -31,11 +31,10 @@
                 <x-forms.label for="role_id" required='yes'>
                     {{ __('User Role') }}
                 </x-forms.label>
-
                 <x-forms.select-input wire:model.live="form.role_id">
-                    <option selected disabled>--User Role--</option>
+                    <option disabled>--User Role--</option>
                     @forelse ($roles as $role)
-                        <option value="{{ $role?->id }}">{{ $role?->name }}</option>
+                        <option @selected(old('form.role_id', $user->roles->first()->id) == $role->id) value="{{ $role?->id }}">{{ $role?->name }}</option>
                     @empty
                         <option disabled>--No Roles Found--</option>
                     @endforelse

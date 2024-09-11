@@ -33,10 +33,11 @@ class UpdateAdminUser extends Component
      */
     public function mount(): void
     {
+        $this->form->ignore = $this->user->id;
         $this->form->name = $this->user?->name;
         $this->form->email = $this->user?->email;
         $this->form->password = $this->user?->password;
-        $this->form->role_id = $this->user?->role_id;
+        $this->form->role_id = $this->user->roles->first()->id;
     }
 
     /**
@@ -45,7 +46,7 @@ class UpdateAdminUser extends Component
      */
     public function update(AdminUserService $service): void
     {
-        $this->form->validate();
+        $this->validate(rules: $this->form->rules(), attributes: $this->form->attributes());
         $isUpdate = $service->update($this->user, $this->form);
         $response = $isUpdate ? 'Data has been update sccessfully !' : 'Something went wrong !';
         flash()->success($response);
