@@ -18,7 +18,7 @@
             <x-input-error :messages="$errors->get('route')" class="mt-2" />
         </div>
         <div class="p-2 w-full">
-            <x-forms.text-input type="text" wire:model.live="url" placeholder="Full url" />
+            <x-forms.text-input type="text" wire:model.live="url" placeholder="Url" />
             <x-input-error :messages="$errors->get('url')" class="mt-2" />
         </div>
 
@@ -42,18 +42,11 @@
             </x-forms.select-input>
             <x-input-error :messages="$errors->get('status')" class="mt-2" />
         </div>
-        {{-- <div>
-            <select style="display:none;" id="multSelect">
-                <option value="te_1" data-search="arsenal">Arsenal</option>
-                <option value="te_3" data-search="Tottenham Hotspur Spurs">Spurs</option>
-                <option value="te_3" data-search="Manchester City">Man City</option>
-            </select>
-            <div class="w-full" x-data="alpineMuliSelect({ selected: ['te_11', 'te_12'], elementId: 'multSelect' })"></div>
-        </div> --}}
+
 
         <div class="p-2">
             <x-buttons.primary>
-                Save Event
+                Save
             </x-buttons.primary>
         </div>
 

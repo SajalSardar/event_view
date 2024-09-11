@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Livewire\Component;
 
 class CreateMenu extends Component {
+
     public $roles;
     public $parent_menus = null;
 
