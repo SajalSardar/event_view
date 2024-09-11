@@ -266,3 +266,18 @@
 
 
  }
+
+ .nice-select .option.selected {
+     position: relative;
+     color: green;
+ }
+
+ .nice-select .option.selected:after {
+     content: '\2713';
+     position: absolute;
+     right: 10px;
+ }
+
+ .nice-select .option {
+     padding: 0 15px;
+ }

@@ -10,6 +10,7 @@
 
         <!-- Style css  !-->
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/nice-select2.css') }}">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
@@ -42,6 +43,16 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/js/nice-select2.js') }}"></script>
+    <script>
+        var options = {
+            searchable: true,
+            placeholder: 'select',
+            searchtext: 'zoek',
+            selectedtext: 'item selected'
+        };
+        NiceSelect.bind(document.getElementById("seachable-select"), options);
+    </script>
     @livewireScripts
     @yield('script')
 
