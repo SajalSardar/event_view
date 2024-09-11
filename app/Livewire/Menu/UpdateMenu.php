@@ -65,7 +65,7 @@ class UpdateMenu extends Component
             "status"    => $this->status,
         ]);
         flash()->success('Menu Updated!');
-        return redirect()->to('/dashboard/menu/create');
+        return back();
     }
 
     public function render()

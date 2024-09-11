@@ -88,5 +88,8 @@ class MenuController extends Controller
     public function destroy(Menu $menu)
     {
         Gate::authorize('delete', $menu);
+        $menu->delete();
+        flash()->success('Menu has been deleted');
+        return back();
     }
 }
