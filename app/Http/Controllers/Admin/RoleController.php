@@ -7,19 +7,23 @@ use App\Models\Module;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
-class RoleController extends Controller {
+class RoleController extends Controller
+{
 
-    public function index() {
+    public function index()
+    {
         $roles = Role::orderBy('id', 'desc')->get();
         return view('role.index', compact('roles'));
     }
 
-    public function create() {
+    public function create()
+    {
         $modules = Module::with('permissions')->get();
         return view('role.create', compact('modules'));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
             'role' => 'required',
         ]);
@@ -33,7 +37,12 @@ class RoleController extends Controller {
         return back();
     }
 
-    public function edit($id) {
+    /**
+     * Define public method edit()
+     * @param $id;
+     */
+    public function edit($id)
+    {
         $role    = Role::with('permissions')->find($id);
         $modules = Module::with('permissions')->get();
         if ($role->id) {
@@ -44,7 +53,8 @@ class RoleController extends Controller {
         return view('role.edit', compact('modules', 'role', 'rolePermmission'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
 
         $request->validate([
             'role' => 'required',
@@ -60,10 +70,10 @@ class RoleController extends Controller {
         return back();
     }
 
-    public function switchAccount(Request $request) {
+    public function switchAccount(Request $request)
+    {
 
         $request->session()->put('login_role', $request->role);
         return back();
     }
-
 }
