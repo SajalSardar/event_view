@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->text('icon')->nullable();
             $table->json('roles')->nullable();
             $table->string('status')->default('active');
+            $table->string('order')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
