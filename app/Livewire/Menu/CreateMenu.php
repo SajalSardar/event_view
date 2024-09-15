@@ -30,10 +30,10 @@ class CreateMenu extends Component {
     protected function rules() {
         return [
             'name'   => 'required|min:3|unique:menus,name',
-            'route'  => 'required|min:3|unique:menus,route',
+            'route'  => 'required',
             'role'   => 'required',
-            'status' => 'required|min:3',
-            'order'  => 'nullable|integer|min:1',
+            'status' => 'required',
+            'order'  => 'nullable|integer',
         ];
     }
 

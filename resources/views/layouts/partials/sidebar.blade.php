@@ -66,7 +66,7 @@
 
 
 
-        <li class="group py-4 px-5 relative">
+        {{-- <li class="group py-4 px-5 relative">
             <span
                 class="flex items-center {{ Route::is('admin.user.create') ? 'before:absolute before:rounded-l-xl before:content-[""] before:w-[4px] before:h-full before:bg-primary-400 before:top-0 before:right-0' : '' }}">
                 <svg class="inline-block" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -167,7 +167,7 @@
                 </li>
 
             </ul>
-        </li>
+        </li> --}}
 
 
     </ul>

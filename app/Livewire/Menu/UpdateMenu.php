@@ -38,10 +38,10 @@ class UpdateMenu extends Component {
     protected function rules() {
         return [
             'name'   => 'required|min:3|unique:menus,name,' . $this->menu->id,
-            'route'  => 'required|min:3|unique:menus,route,' . $this->menu->id,
+            'route'  => 'required',
             'role'   => 'required',
-            'status' => 'required|min:3',
-            'order'  => 'nullable|integer|min:1',
+            'status' => 'required',
+            'order'  => 'nullable|integer',
         ];
     }
 

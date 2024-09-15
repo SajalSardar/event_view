@@ -45,6 +45,13 @@ class DatabaseSeeder extends Seeder {
             'password'          => Hash::make('password@987'),
             'remember_token'    => Str::random(10),
         ]);
+        $organizerAttendeeUser = User::factory()->create([
+            'name'              => 'organizer Attendee',
+            'email'             => "organizerattendee@gmail.com",
+            'email_verified_at' => now(),
+            'password'          => Hash::make('password@987'),
+            'remember_token'    => Str::random(10),
+        ]);
 
         $role      = Role::create(['name' => 'super-admin']);
         $attendee  = Role::create(['name' => 'attendee']);
@@ -53,6 +60,7 @@ class DatabaseSeeder extends Seeder {
         $user->assignRole($role);
         $attendeeuser->assignRole($attendee);
         $organizeruser->assignRole($organizer);
+        $organizerAttendeeUser->assignRole(['organizer', 'attendee']);
 
         // default menu create
         $menus = [

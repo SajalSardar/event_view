@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->integer('user_id');
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->string('route')->unique();
+            $table->string('route')->default('#');
             $table->string('url')->nullable();
             $table->text('icon')->nullable();
             $table->json('roles')->nullable();
