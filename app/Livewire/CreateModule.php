@@ -12,7 +12,7 @@ use Spatie\Permission\Models\Permission;
 
 class CreateModule extends Component {
 
-    #[Validate('required|min:2|unique:modules', as :'Name')]
+    #[Validate('required|min:2', as :'Name')]
     public $name = '';
     public $folder_name = '';
     public $permission;
