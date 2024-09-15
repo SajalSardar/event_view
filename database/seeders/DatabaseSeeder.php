@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Menu;
+use App\Models\Module;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -161,6 +162,51 @@ class DatabaseSeeder extends Seeder {
             ],
         ];
         Menu::insert($menus);
+
+        // create module
+        $module = [
+            [
+                'name'               => 'User',
+                'slug'               => 'user',
+                'permission'         => 1,
+                'view'               => 1,
+                'livewire_component' => 1,
+                'mcrp'               => 1,
+                'created_at'         => Carbon::now(),
+                'updated_at'         => Carbon::now(),
+            ],
+            [
+                'name'               => 'Role',
+                'slug'               => 'role',
+                'permission'         => 1,
+                'view'               => 1,
+                'livewire_component' => 1,
+                'mcrp'               => 1,
+                'created_at'         => Carbon::now(),
+                'updated_at'         => Carbon::now(),
+            ],
+            [
+                'name'               => 'Menu',
+                'slug'               => 'menu',
+                'permission'         => 1,
+                'view'               => 1,
+                'livewire_component' => 1,
+                'mcrp'               => 1,
+                'created_at'         => Carbon::now(),
+                'updated_at'         => Carbon::now(),
+            ],
+            [
+                'name'               => 'Module',
+                'slug'               => 'module',
+                'permission'         => 1,
+                'view'               => 1,
+                'livewire_component' => 1,
+                'mcrp'               => 1,
+                'created_at'         => Carbon::now(),
+                'updated_at'         => Carbon::now(),
+            ],
+        ];
+        Module::insert($module);
 
     }
 }

@@ -25,16 +25,16 @@
                         <td class="p-10 font-normal text-gray-400">{{ $item->name }}</td>
                         <td class="p-10 font-normal text-gray-400">{{ $item->slug }}</td>
                         <td class="p-10 font-normal text-gray-400">
-                            <x-forms.checkbox-input :checked="$item->permission ? 'checked' : ''" />
+                            <x-forms.checkbox-input :checked="$item->permission ? true : false" />
                         </td>
                         <td class="p-10 font-normal text-gray-400">
-                            <x-forms.checkbox-input :checked="$item->view ? 'checked' : ''" />
+                            <x-forms.checkbox-input :checked="$item->view ? true : false" />
                         </td>
                         <td class="p-10 font-normal text-gray-400">
-                            <x-forms.checkbox-input :checked="$item->livewire_component ? 'checked' : ''" />
+                            <x-forms.checkbox-input :checked="$item->livewire_component ? true : false" />
                         </td>
                         <td class="p-10 font-normal text-gray-400">
-                            <x-forms.checkbox-input :checked="$item->mcrp ? 'checked' : ''" />
+                            <x-forms.checkbox-input :checked="$item->mcrp ? true : false" />
                         </td>
                         <td>
                             <div class="flex">
