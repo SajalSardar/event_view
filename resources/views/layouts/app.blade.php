@@ -32,7 +32,7 @@
             @include('layouts.partials.breadcrumb')
             <!-- Breadcrumb End -->
 
-            <div class="{{ Route::is('*.index') ? 'px-0' : 'md:px-12 sm:px-0' }} mt-5">
+            <div>
                 {{ $slot }}
             </div>
         </div>
