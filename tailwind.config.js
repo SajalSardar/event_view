@@ -18,11 +18,15 @@ export default {
                 },
                 navbar: {
                     bg: '#F8FAFF'
+                },
+                textSm : {
+                    400 : "#666",
                 }
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                inter: ["Inter", "sans-serif"]
+                inter: ["Inter", "sans-serif"],
+                poppins : ["Poppins","sans-serif"]
             },
         },
         screens: {

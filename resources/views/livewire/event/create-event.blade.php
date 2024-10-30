@@ -31,32 +31,25 @@
     </div>
     <div class="p-5 rounded-lg shadow">
         <form wire:submit="save">
-            <div class="grid md:grid-cols-2 sm:grid-cols-1 sm:gap-1 md:gap-4">
-                <div class="p-2 w-full">
-                    <x-forms.label for="form.name" required='yes'>
-                        {{ __('User Name') }}
-                    </x-forms.label>
-                    <x-forms.text-input type="text" wire:model.live='form.name' placeholder="User name" />
-                    <x-input-error :messages="$errors->get('form.name')" class="mt-2" />
-                </div>
-
-                <div class="p-2 w-full">
-                    <x-forms.label for="form.email" required='yes'>
-                        {{ __('User Email') }}
-                    </x-forms.label>
-                    <x-forms.text-input wire:model.live="form.email" type="email" placeholder="Enter user email" />
-                    <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
-                </div>
-
+            <div class="p-2 mb-2">
+                <h3 class="text-2xl font-inter font-medium">What is this event about?</h3>
+                <p class="font-poppins text-base font-normal text-textSm-400">A concise and engaging description of your event. Use a clear and descriptive title that conveys the essence of your event.</p>
             </div>
-
             <div class="grid md:grid-cols-2 sm:grid-cols-1 sm:gap-1 md:gap-4">
                 <div class="p-2 w-full">
-                    <x-forms.label for="form.password" required='yes'>
-                        {{ __('User password') }}
+                    <x-forms.label for="form.title" required='yes'>
+                        {{ __('Event Title') }}
                     </x-forms.label>
-                    <x-forms.text-input wire:model.live="form.password" type="password" placeholder="Enter user password" />
-                    <x-input-error :messages="$errors->get('form.password')" class="mt-2" />
+                    <x-forms.text-input type="text" wire:model.live='form.title' />
+                    <x-input-error :messages="$errors->get('form.title')" class="mt-2" />
+                </div>
+
+                <div class="p-2 w-full">
+                    <x-forms.label for="form.description" required='yes'>
+                        {{ __('Event Short Description') }}
+                    </x-forms.label>
+                    <x-forms.text-input wire:model.live="form.description" type="text" />
+                    <x-input-error :messages="$errors->get('form.description')" class="mt-2" />
                 </div>
             </div>
 
