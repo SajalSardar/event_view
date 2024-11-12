@@ -18,10 +18,18 @@ export default {
                 },
                 navbar: {
                     bg: '#F8FAFF'
+                },
+                word: {
+                    title: '#333333',
+                    paragraph: '#5c5c5c'
+                },
+                line: {
+                    base: '#dddddd',
                 }
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                body: ["Poppins", "sans-serif"],
             },
         },
         screens: {
