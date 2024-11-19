@@ -8,7 +8,7 @@
             <main class="border border-line-base rounded px-8 py-6 w-full">
                 <h3 class="font-semibold text-[28px] font-body text-word-title">SIGN UP</h3>
                 <x-auth-session-status class="mb-4" :status="session('status')" />
-                <form method="POST" action="{{ route('login') }}" class="mt-5 grid grid-cols-6 gap-3">
+                <form method="POST" action="{{ route('register') }}" class="mt-5 grid grid-cols-6 gap-3">
                     @csrf
                     <div class="col-span-6 sm:col-span-3">
                         <a href="#" class="flex justify-center items-center gap-1 border border-line-base rounded-lg h-[40px]">
@@ -66,12 +66,86 @@
                     </div>
 
                     <div class="col-span-6">
-                        <x-forms.select-input name="role">
-                            <option disabled selected>Select User Type</option>
-                            <option value="1">{{ __('Organizer') }}</option>
-                            <option value="2">{{ __('Attendee') }}</option>
-                        </x-forms.select-input>
-                        <x-input-error :messages="$errors->get('role')" class="mt-2" />
+                        <div class="custom-select-wrapper">
+                            <div class="custom-select">
+                                <div class="custom-select-trigger">
+                                    <input id="valueContent" name="role" type="text" hidden />
+                                    <span class="text-paragraph">Select User Type</span>
+                                    <svg
+                                        class="hover-svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6 9L12 15L18 9"
+                                            stroke="#5C5C5C"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <ul class="custom-options">
+                                    <li class="custom-option" data-value="1">
+                                        <div>
+                                            <svg
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M12.5 22H6.59087C5.04549 22 3.81631 21.248 2.71266 20.1966C0.453366 18.0441 4.1628 16.324 5.57757 15.4816C7.67837 14.2307 10.1368 13.7719 12.5 14.1052C13.3575 14.2261 14.1926 14.4514 15 14.7809"
+                                                    stroke="#6D4DFF"
+                                                    stroke-width="1.5"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z"
+                                                    stroke="#6D4DFF"
+                                                    stroke-width="1.5" />
+                                                <path
+                                                    d="M18.5 22V15M15 18.5H22"
+                                                    stroke="#6D4DFF"
+                                                    stroke-width="1.5"
+                                                    stroke-linecap="round" />
+                                            </svg>
+                                        </div>
+                                        <div>Organizer</div>
+                                    </li>
+                                    <li class="custom-option" data-value="2">
+                                        <div>
+                                            <svg
+                                                class="hover-svg"
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M14 18C14 18 15 18 16 20C16 20 19.1765 15 22 14"
+                                                    stroke="#5C5C5C"
+                                                    stroke-width="1.5"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M13 22H6.59087C5.04549 22 3.81631 21.248 2.71266 20.1966C0.453366 18.0441 4.1628 16.324 5.57757 15.4816C8.75591 13.5891 12.7529 13.5096 16 15.2432"
+                                                    stroke="#5C5C5C"
+                                                    stroke-width="1.5"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z"
+                                                    stroke="#5C5C5C"
+                                                    stroke-width="1.5" />
+                                            </svg>
+                                        </div>
+                                        <div>Attendee</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-span-6 flex justify-between">
@@ -99,4 +173,116 @@
             </main>
         </div>
     </div>
+
+    @push('script')
+    <script>
+        const valueContent = document.querySelector('#valueContent');
+
+        document.querySelectorAll('.custom-select').forEach((select) => {
+            const trigger = select.querySelector('.custom-select-trigger');
+            const options = select.querySelectorAll('.custom-option');
+
+            trigger.addEventListener('click', () => {
+                select.classList.toggle('open');
+            });
+
+
+            options.forEach((option) => {
+                option.addEventListener('click', () => {
+                    const value = option.getAttribute('data-value');
+                    const text = option.textContent;
+                    valueContent.value = value;
+                    trigger.querySelector('span').textContent = text;
+                    select.classList.remove('open');
+
+                    // Optionally trigger a custom event
+                    select.dispatchEvent(new CustomEvent('change', {
+                        detail: {
+                            value
+                        }
+                    }));
+                });
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.custom-select')) {
+                document.querySelectorAll('.custom-select').forEach((select) => {
+                    select.classList.remove('open');
+                });
+            }
+        });
+    </script>
+    @endpush
+
+    @push('css')
+    <style>
+        .custom-select-wrapper {
+            position: relative;
+            width: 430px;
+            height: 40px;
+        }
+
+        .custom-select {
+            position: relative;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .custom-select-trigger {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            height: 40px;
+            padding: 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .custom-select-trigger .arrow {
+            border: solid #333;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 5px;
+            transform: rotate(45deg);
+        }
+
+        .custom-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-radius: 4px;
+            z-index: 10;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .custom-option {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .custom-option:last-child {
+            border-bottom: none;
+        }
+
+        .custom-option:hover {
+            background: #fff;
+            color: #6D4DFF;
+        }
+
+        .custom-select.open .custom-options {
+            display: block;
+        }
+    </style>
+    @endpush
 </x-guest-layout>
