@@ -5,3 +5,7 @@
 .text-paragraph {
     @apply font-body text-sm text-word-paragraph;
 }
+
+.text-title {
+    @apply font-body text-base text-word-paragraph font-semibold;
+}

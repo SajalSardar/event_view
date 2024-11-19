@@ -5,10 +5,10 @@
             <img alt="img" src="{{ asset('assets/images/login.png') }}" class="w-full" />
         </div>
         <div class="flex px-6 items-center">
-            <main class="border border-line-base rounded p-6 w-full">
-                <h3 class="font-semibold text-3xl font-pop text-word-title">SIGN IN</h3>
+            <main class="border border-line-base rounded px-8 py-6 w-full">
+                <h3 class="font-semibold text-[28px] font-body text-word-title">SIGN IN</h3>
                 <x-auth-session-status class="mb-4" :status="session('status')" />
-                <form method="POST" action="{{ route('login') }}" class="mt-6 grid grid-cols-6 gap-3">
+                <form method="POST" action="{{ route('login') }}" class="mt-5 grid grid-cols-6 gap-3">
                     @csrf
                     <div class="col-span-6 sm:col-span-3">
                         <a href="#" class="flex justify-center items-center gap-1 border border-line-base rounded-lg h-[40px]">
@@ -27,7 +27,6 @@
                     <p class="col-span-6 text-paragraph text-center w-full">
                         <span>Or Email</span>
                     </p>
-
 
                     <div class="col-span-6">
                         <div class="col-span-6">
@@ -59,14 +58,14 @@
                     </div>
 
                     <div class="col-span-6 flex justify-between">
-                        <p class="flex gap-4">
+                        <p class="flex gap-2">
                             <x-forms.checkbox-input name="remember" />
-                            <span class="text-sm text-gray-700">
+                            <span class="text-paragraph">
                                 {{ __('Remember me') }}
                             </span>
                         </p>
-                        <p class="flex gap-4">
-                            <span class="text-sm text-gray-700">
+                        <p class="flex">
+                            <span class="text-paragraph">
                                 <a href="{{ route('password.request') }}">{{ __('Forget Password ?') }}</a>
                             </span>
                         </p>
@@ -79,9 +78,9 @@
                     </div>
 
                     <div class="col-span-6">
-                        <p class="text-sm text-gray-500 sm:mt-0">
+                        <p class="text-paragraph sm:mt-0">
                             Don't have an account?
-                            <a href="{{ route('register') }}" class="text-primary-400 underline font-bold">Sign Up</a>.
+                            <a href="{{ route('register') }}" class="text-primary-400 font-bold">Sign Up</a>
                         </p>
                     </div>
                 </form>

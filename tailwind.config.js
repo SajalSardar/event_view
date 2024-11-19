@@ -16,8 +16,8 @@ export default {
                     400: "#6D4DFF",
                     500: "rgb(109,77,266,4%)"
                 },
-                navbar: {
-                    bg: '#F8FAFF'
+                secondary: {
+                    400: '#F3F4F6'
                 },
                 word: {
                     title: '#333333',

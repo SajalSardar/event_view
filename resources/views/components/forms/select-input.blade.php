@@ -1,3 +1,3 @@
-<select {!! $attributes->merge(['class' => 'w-full py-3 border border-slate-400 text-slate-400 focus:border-primary-400 rounded-lg bg-transparent']) !!}>
+<select {!! $attributes->merge(['class' => 'w-full py-2 border border-line-base text-paragraph focus:border-primary-400 rounded bg-transparent']) !!}>
     {{ $slot }}
 </select>

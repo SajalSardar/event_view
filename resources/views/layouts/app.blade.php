@@ -33,7 +33,6 @@
             <!-- Breadcrumb End -->
             {{ $slot }}
         </div>
-
     </main>
 
     @livewireScripts
