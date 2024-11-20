@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified','locale'])->name('dashboard');
+})->middleware(['auth', 'verified', 'locale'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -20,6 +20,9 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/sajal.php';
-require __DIR__ . '/thealamdev.php';
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    require __DIR__ . '/thealamdev.php';
+});
+
 
 Route::get('locale/{lang}', [LocalizationController::class, 'locale'])->name('local');

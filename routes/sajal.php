@@ -1,7 +1,5 @@
 <?php
 
-// module
-
 use App\Http\Controllers\ModuleController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -9,7 +7,6 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('dashboard/')->name('dashboard.')->group(function () {
     Route::resource('module', ModuleController::class);
 });
-// test route
 
 Route::get('text-route', function () {
     Artisan::call("livewire:make test");

@@ -105,6 +105,6 @@
 </nav>
 <script>
     function changeLanguage(lang) {
-        window.location.href = '{{ url('locale') }}/' + lang;
+        window.location.href = '{{ url("locale") }}/' + lang;
     }
 </script>
