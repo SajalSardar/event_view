@@ -1,6 +1,9 @@
 *,
+
 ::before,
 ::after {
+    margin: 0;
+    padding: 0;
     --tw-translate-x: 0;
     --tw-translate-y: 0;
     --tw-rotate: 0;
@@ -8,29 +11,6 @@
     --tw-skew-y: 0;
     --tw-scale-x: 1;
     --tw-scale-y: 1;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    line-height: 0;
-    box-sizing: border-box;
-}
-
-a,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ol,
-ul {
-    margin: 0;
-    padding: 0;
-    line-height: 0;
 }
 
 ::backdrop {
@@ -41,6 +21,7 @@ ul {
     --tw-skew-y: 0;
     --tw-scale-x: 1;
     --tw-scale-y: 1;
+
 }
 
 .transition-transform {
@@ -51,9 +32,7 @@ ul {
 
 .-translate-x-full {
     --tw-translate-x: -100%;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-        rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-        scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 @media (min-width: 768px) {
@@ -68,15 +47,11 @@ ul {
 }
 
 /* navbar css */
-* {
-    margin: 0;
-    padding: 0;
-}
 
 .navbar {
     /* margin-left: 256px; */
-    height: 70px;
-    background: #f8faff;
+    height: 76px;
+    background: #F8FAFF;
     position: fixed;
     left: 0;
     top: 0;
@@ -101,6 +76,7 @@ ul {
     justify-content: center;
     align-items: center;
     padding: 0px 10px;
+
 }
 
 .search-input input {
@@ -167,7 +143,7 @@ ul {
 }
 
 /* media query */
-@media screen and (max-width: 480px) {
+@media screen and (max-width:480px) {
     .sidebar {
         display: none;
     }
@@ -225,9 +201,11 @@ ul {
     .arrow {
         display: none;
     }
+
+
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width:768px) {
     .sidebar {
         display: none;
     }
@@ -285,4 +263,21 @@ ul {
     .arrow {
         display: none;
     }
+
+
+}
+
+.nice-select .option.selected {
+    position: relative;
+    color: green;
+}
+
+.nice-select .option.selected:after {
+    content: '\2713';
+    position: absolute;
+    right: 10px;
+}
+
+.nice-select .option {
+    padding: 0 15px;
 }
