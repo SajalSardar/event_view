@@ -59,7 +59,7 @@
                             @if (Helper::roleWiseMenuPermission($submenu->id))
                                 <li class="mb-4 flex relative">
                                     <a href="{{ $submenu->route == '#' && $submenu->url ? url($submenu->url) : route($submenu->route) }}"
-                                        class="block pl-3 text-gray-900 text-base font-inter font-medium flex items-center hover:text-[#f84525] hover:before:bg-primary-400 before:absolute before:rounded-r-2xl before:content-[''] before:w-[3px] before:h-[55px] before:top-0 before:right-0 {{ Route::is($submenu->route) || url($submenu->url) == Request::fullUrl() ? 'before:bg-primary-400' : '' }}">
+                                        class="block pl-3 text-gray-900 text-base font-inter font-medium items-center hover:text-[#f84525] hover:before:bg-primary-400 before:absolute before:rounded-r-2xl before:content-[''] before:w-[3px] before:h-[55px] before:top-0 before:right-0 {{ Route::is($submenu->route) || url($submenu->url) == Request::fullUrl() ? 'before:bg-primary-400' : '' }}">
                                         <span class="flex items-center text-sm font-inter font-semibold {{ Route::is($submenu->route) || url($submenu->url) == Request::fullUrl() ? 'text-[#333]' : 'text-[#5c5c5c]' }} ">
                                             <span class="pl-4"> {!! $submenu->icon !!}</span>
                                             <span class="font-inter ml-2">{{ $submenu->name }}</span>
