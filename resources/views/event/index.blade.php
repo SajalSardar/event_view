@@ -1,3 +1,3 @@
 <x-app-layout>
-@include('event.partials.breadcrumb')
+    @include('event.breadcrumb.index')
 </x-app-layout>

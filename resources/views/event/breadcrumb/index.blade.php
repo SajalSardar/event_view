@@ -13,6 +13,14 @@
                 'title' => 'Event',
                 'route' => route('admin.event.index'),
             ],
+            [
+                'title' => '/',
+                'route' => '#',
+            ],
+            [
+                'title' => 'Events',
+                'route' => route('admin.event.index'),
+            ]
         ];
     @endphp
     <x-breadcrumb :data="$response" />

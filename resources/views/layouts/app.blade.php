@@ -27,7 +27,7 @@
     @include('layouts.partials.navbar')
     <!-- Navbar End -->
 
-    <div class="pt-8 px-10">
+    <div class="p-6">
         {{ $slot }}
     </div>
 

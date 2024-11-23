@@ -1,3 +1,4 @@
-<x-app-layout>
-    <livewire:event.create-event />
-</x-app-layout>
+ <x-app-layout>
+    @include('event.breadcrumb.create')
+     <livewire:event.create-event />
+ </x-app-layout>

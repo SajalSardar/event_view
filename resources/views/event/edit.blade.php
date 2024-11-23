@@ -1,1 +1,3 @@
-<x-app-layout><livewire:update-event /></x-app-layout>
+<x-app-layout>
+    <livewire:update-event />
+</x-app-layout>
