@@ -4,16 +4,16 @@ namespace App\Policies;
 
 use App\Models\Menu;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
-class MenuPolicy
-{
+class MenuPolicy {
+    use HandlesAuthorization;
+
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
-    {
-         if ($user->can('view list')) {
+    public function viewAny(User $user): bool {
+        if ($user->can('menu view list')) {
             return true;
         }
     }
@@ -21,37 +21,27 @@ class MenuPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Menu $menu): bool
-    {
-        if ($user->can('view list')) {
+    public function view(User $user): bool {
+        if ($user->can('menu view list')) {
             return true;
         }
-        if ($user->can('view own list')) {
-            return $user->id == $menu->user_id;
-        }
-  
+        return false;
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
-    {
+    public function create(User $user): bool {
         //
-        return ($user->can('create'));
+        return ($user->can('module create'));
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Menu $menu): bool
-    {
-        if ($user->can('update')) {
+    public function update(User $user, Menu $menu): bool {
+        if ($user->can('menu update')) {
             return true;
-        }
-
-        if ($user->can('update own')) {
-            return $user->id == $menu->user_id;
         }
 
     }
@@ -59,40 +49,27 @@ class MenuPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Menu $menu): bool
-    {
-        if ($user->can('delete')) {
+    public function delete(User $user, Menu $menu): bool {
+        if ($user->can('menu delete')) {
             return true;
-        }
-
-        if ($user->can('delete own')) {
-            return $user->id == $menu->user_id;
         }
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Menu $menu): bool
-    {
-        if ($user->can('restore')) {
+    public function restore(User $user, Menu $menu): bool {
+        if ($user->can('menu restore')) {
             return true;
-        }
-        if ($user->can('restore own')) {
-            return $user->id == $menu->user_id;
         }
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Menu $menu): bool
-    {
-        if ($user->can('force delete')) {
+    public function forceDelete(User $user, Menu $menu): bool {
+        if ($user->can('menu force delete')) {
             return true;
-        }
-        if ($user->can('force delete own')) {
-            return $user->id == $menu->user_id;
         }
     }
 }

@@ -5,15 +5,17 @@ namespace {{ namespace }};
 use Illuminate\Auth\Access\Response;
 use {{ namespacedModel }};
 use {{ namespacedUserModel }};
+use Illuminate\Auth\Access\HandlesAuthorization;
 
 class {{ class }}
 {
+    use HandlesAuthorization;
     /**
      * Determine whether the user can view any models.
      */
     public function viewAny({{ user }} $user): bool
     {
-         if ($user->can('view list')) {
+         if ($user->can('{{ modelVariable }} view list')) {
             return true;
         }
     }
@@ -23,11 +25,8 @@ class {{ class }}
      */
     public function view({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
     {
-        if ($user->can('view list')) {
+        if ($user->can('{{ modelVariable }} view list')) {
             return true;
-        }
-        if ($user->can('view own list')) {
-            return $user->id == ${{ modelVariable }}->user_id;
         }
   
     }
@@ -38,7 +37,7 @@ class {{ class }}
     public function create({{ user }} $user): bool
     {
         //
-        return ($user->can('create'));
+        return ($user->can('{{ modelVariable }} create'));
     }
 
     /**
@@ -46,12 +45,8 @@ class {{ class }}
      */
     public function update({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
     {
-        if ($user->can('update')) {
+        if ($user->can('{{ modelVariable }} update')) {
             return true;
-        }
-
-        if ($user->can('update own')) {
-            return $user->id == ${{ modelVariable }}->user_id;
         }
 
     }
@@ -61,13 +56,10 @@ class {{ class }}
      */
     public function delete({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
     {
-        if ($user->can('delete')) {
+        if ($user->can('{{ modelVariable }} delete')) {
             return true;
         }
 
-        if ($user->can('delete own')) {
-            return $user->id == ${{ modelVariable }}->user_id;
-        }
     }
 
     /**
@@ -75,11 +67,8 @@ class {{ class }}
      */
     public function restore({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
     {
-        if ($user->can('restore')) {
+        if ($user->can('{{ modelVariable }} restore')) {
             return true;
-        }
-        if ($user->can('restore own')) {
-            return $user->id == ${{ modelVariable }}->user_id;
         }
     }
 
@@ -88,11 +77,8 @@ class {{ class }}
      */
     public function forceDelete({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
     {
-        if ($user->can('force delete')) {
+        if ($user->can('{{ modelVariable }} force delete')) {
             return true;
-        }
-        if ($user->can('force delete own')) {
-            return $user->id == ${{ modelVariable }}->user_id;
         }
     }
 }

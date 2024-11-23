@@ -7,20 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
 
-class Menu extends Model
-{
+class Menu extends Model {
     use HasFactory, SoftDeletes;
-
-    protected static function boot()
-    {
+    protected $guarded = ['id'];
+    protected static function boot() {
         parent::boot();
-    
+
         static::created(function () {
-            Cache::forget("name_list");
+            Cache::forget("menu_list");
         });
-    
+
         static::updated(function () {
-            Cache::forget("name_list");
+            Cache::forget("menu_list");
         });
     }
+
+    public function submneus() {
+        return $this->hasMany(Menu::class, 'parent_id', 'id')->whereNotNull('parent_id');
+    }
+
 }

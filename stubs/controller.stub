@@ -6,6 +6,8 @@ use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
+use App\Models\User;
 
 class {{ class }} extends Controller
 {
@@ -14,8 +16,8 @@ class {{ class }} extends Controller
      */
     public function index()
     {
-        Gate::authorize('view', {{ model }}::class);
-    
+        Gate::authorize('view',  {{ model }}::class);
+        return view('{{ modelVariable }}.index');
     }
 
     /**
@@ -25,7 +27,7 @@ class {{ class }} extends Controller
     {
         Gate::authorize('view', {{ model }}::class);
         
-        ${{ modelVariable }} = Cache::remember('name_list', 60 * 60, function () {
+        ${{ modelVariable }} = Cache::remember('{{ modelVariable }}_list', 60 * 60, function () {
             return {{ model }}::get();
         });
     }
@@ -35,7 +37,8 @@ class {{ class }} extends Controller
      */
     public function create()
     {
-        Gate::authorize('crate', {{ model }}::class);
+        Gate::authorize('crate',  {{ model }}::class);
+        return view('{{ modelVariable }}.create');
     }
 
     /**
@@ -52,6 +55,7 @@ class {{ class }} extends Controller
     public function show(string $id)
     {
         Gate::authorize('view', {{ model }}::class);
+        return view('{{ modelVariable }}.show');
     }
 
     /**
@@ -59,7 +63,8 @@ class {{ class }} extends Controller
      */
     public function edit(string $id)
     {
-        Gate::authorize('update', {{ model }}::class);
+        Gate::authorize('update',  {{ model }}::class);
+        return view('{{ modelVariable }}.edit');
     }
 
     /**
