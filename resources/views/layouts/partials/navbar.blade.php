@@ -40,9 +40,10 @@
                     class="user-type-select border border-slate-200 rounded bg-transparent text-sm font-normal text-center"
                     onchange="accountSwitch()" id="accountSelect" name="role">
                     @foreach (Helper::getLoggedInUserRoles() as $role)
-                        <option value="{{ $role->name }}"
-                            {{ Helper::getLoggedInUserRoleSession() === $role->name ? 'selected' : '' }}>
-                            {{ Str::ucfirst($role->name) }}</option>
+                    <option value="{{ $role->name }}"
+                        {{ Helper::getLoggedInUserRoleSession() === $role->name ? 'selected' : '' }}>
+                        {{ Str::ucfirst($role->name) }}
+                    </option>
                     @endforeach
                 </select>
             </form>
@@ -76,24 +77,22 @@
                     <div class="absolute top-0 start-0 rounded-full -z-10 animate-ping bg-red-400 w-full h-full"></div>
                 </div>
 
-                <!-- Notification box start  !-->
                 <div class="toggle-notification-box absolute w-96 h-96 bg-white border border-slate-300 rounded shadow top-12 right-0 sm:-right-10 overflow-auto"
                     style="display: none">
                     @for ($i = 1; $i < 10; $i++)
                         <a href="#">
-                            <div class="p-4 flex items-center hover:bg-slate-200">
-                                <img src="{{ asset('assets/images/user.png') }}" alt="profile">
-                                <div class="ml-4">
-                                    <p class="text-sm text-gray-500">You have a event on today.</p>
-                                    <p class="text-sm text-gray-500">11.00 PM, 2 Aug, 2025</p>
-                                </div>
+                        <div class="p-4 flex items-center hover:bg-slate-200">
+                            <img src="{{ asset('assets/images/user.png') }}" alt="profile">
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500">You have a event on today.</p>
+                                <p class="text-sm text-gray-500">11.00 PM, 2 Aug, 2025</p>
                             </div>
+                        </div>
                         </a>
-                    @endfor
-
+                        @endfor
                 </div>
-                <!-- Notification box end  !-->
             </div>
+
             <div class="relative md:ml-3 sm:ml-1 cursor-pointer toggle-email-notification-button">
                 <svg width="24" height="24" class="sm:w-4 sm:h-4 md:w-6 md:h-6" viewBox="0 0 24 24"
                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,29 +116,26 @@
                     <div class="absolute top-0 start-0 rounded-full -z-10 animate-ping bg-red-400 w-full h-full"></div>
                 </div>
 
-                <!--Email Notification box start  !-->
                 <div class="toggle-email-notification-box absolute w-96 h-96 bg-white border border-slate-300 rounded shadow top-12 right-0 sm:-right-10 overflow-auto"
                     style="display: none">
                     @for ($i = 1; $i < 10; $i++)
                         <a href="#">
-                            <div class="p-4 flex items-center hover:bg-slate-200">
-                                <img src="{{ asset('assets/images/user.png') }}" alt="profile">
-                                <div class="ml-2">
-                                    <p class="text-sm text-gray-500">You have a event on today.</p>
-                                    <p class="text-sm text-gray-500">11.00 PM, 2 Aug, 2025</p>
-                                </div>
+                        <div class="p-4 flex items-center hover:bg-slate-200">
+                            <img src="{{ asset('assets/images/user.png') }}" alt="profile">
+                            <div class="ml-2">
+                                <p class="text-sm text-gray-500">You have a event on today.</p>
+                                <p class="text-sm text-gray-500">11.00 PM, 2 Aug, 2025</p>
                             </div>
+                        </div>
                         </a>
-                    @endfor
+                        @endfor
                 </div>
-                <!-- Email Notification box end  !-->
             </div>
         </div>
 
         <div class="profile relative">
             <div class="toggle-menu-button flex justify-center items-center">
-                <img src="{{ asset('assets/images/profile.png') }}" alt="profile"
-                    class="ml-3 sm:w-2/4 sm:h-2/4 md:w-full md:h-full">
+                <img src="{{ asset('assets/images/profile.png') }}" alt="profile" class="ml-3" width="50px" height="50px">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 9L12 15L18 9" stroke="#333333" stroke-width="2" stroke-linecap="round"
