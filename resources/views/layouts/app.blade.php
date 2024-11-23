@@ -26,15 +26,9 @@
     <!-- Navbar Start -->
     @include('layouts.partials.navbar')
     <!-- Navbar End -->
+
     <div class="pt-8 px-10">
-
-        <!-- Breadcrumb Start -->
-        @include('layouts.partials.breadcrumb')
-        <!-- Breadcrumb End -->
-
-        <div class="{{ Route::is('*.index') ? 'px-0' : 'md:px-12 sm:px-0' }} mt-5">
-            {{ $slot }}
-        </div>
+        {{ $slot }}
     </div>
 
 </main>

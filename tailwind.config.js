@@ -14,15 +14,23 @@ export default {
             colors: {
                 primary: {
                     400: "#6D4DFF",
-                    500: "rgb(109,77,266,4%)"
+                    500: "rgb(109,77,266,4%)",
+                    600: "#F5F2FF"
                 },
-                navbar: {
-                    bg: '#F8FAFF'
+                secondary: {
+                    400: '#F3F4F6'
+                },
+                word: {
+                    title: '#333333',
+                    paragraph: '#5c5c5c'
+                },
+                line: {
+                    base: '#dddddd',
                 }
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                inter: ["Inter", "sans-serif"]
+                body: ["Poppins", "sans-serif"],
             },
         },
         screens: {

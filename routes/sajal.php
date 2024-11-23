@@ -22,7 +22,6 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     // change role in header option
     Route::post('switch-accont', [RoleController::class, 'switchAccount'])->name('role.swotch');
 });
-// test route
 
 Route::get('text-route', function () {
     Artisan::call("livewire:make test");
