@@ -14,7 +14,8 @@ export default {
             colors: {
                 primary: {
                     400: "#6D4DFF",
-                    500: "rgb(109,77,266,4%)"
+                    500: "rgb(109,77,266,4%)",
+                    600: "#F5F2FF"
                 },
                 secondary: {
                     400: '#F3F4F6'

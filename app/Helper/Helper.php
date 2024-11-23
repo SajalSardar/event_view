@@ -58,16 +58,19 @@ class Helper {
 
     //get all menu and sub menu
     public static function getAllMenus() {
-        $menu = Cache::remember('menu_list', 60 * 60, function () {
-            return Menu::with(['submneus' => function ($q) {
-                $q->orderBy('order', 'asc');
-            }])
-                ->where('parent_id', null)
+        $loginRole = Helper::getLoggedInUserRoleSession();
+        $menus     = Menu::with(['submneus' => function ($q) use ($loginRole) {
+            $q->orderBy('order', 'asc')
                 ->where('status', 'active')
-                ->orderBy('order', 'asc')
-                ->get();
-        });
-        return $menu;
+                ->whereJsonContains('roles', $loginRole);
+        }])
+            ->whereJsonContains('roles', $loginRole)
+            ->where('parent_id', null)
+            ->where('status', 'active')
+            ->orderBy('order', 'asc')
+            ->get();
+
+        return $menus;
     }
 
     //get login user roles
