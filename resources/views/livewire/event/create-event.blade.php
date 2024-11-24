@@ -1,4 +1,106 @@
 <div>
     @include('livewire.event.partials.step')
-    <div class="mt-8">ie</div>
+    <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mt-8">
+        <div class="border border-line-base rounded p-8">
+            <div class="mb-5">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-title pb-1">What is this event about?</h3>
+                    <x-svg.down-arrow />
+                </div>
+                <p class="text-paragraph">A concise and engaging description of your event. Use a clear and descriptive title that conveys the essence of your event.</p>
+            </div>
+            @include('livewire.event.partials.forms.basic')
+        </div>
+    </div>
+    <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mt-8">
+        <div class="border border-line-base rounded p-8">
+            <div class="mb-5">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-title pb-1">When And Where This Event Is Happening?</h3>
+                    <x-svg.down-arrow />
+                </div>
+                <div class="font-sans">
+                    <ul class="flex">
+                        <li id="homeTab" class="tab text-primary-400 text-paragraph text-center bg-gray-50 py-3 px-6 border-b-2 border-primary-400 cursor-pointer transition-all">
+                            Single Event
+                        </li>
+                        <li id="contentTab"
+                            class="tab text-gray-600 text-paragraph text-center bg-gray-50 py-3 px-6 border-b-2 cursor-pointer transition-all">
+                            Recurring event
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="homeContent" class="tab-content max-w-2xl block mt-8">
+                @include('livewire.event.partials.forms.location')
+            </div>
+            <div id="contentContent" class="tab-content max-w-2xl hidden mt-8">
+                @include('livewire.event.partials.forms.basic')
+            </div>
+        </div>
+    </div>
+    <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mt-8">
+        <div class="border border-line-base rounded p-8">
+            <div class="mb-5">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-title pb-1">Add More to Your Event</h3>
+                    <x-svg.down-arrow />
+                </div>
+                <p class="text-paragraph">Agenda</p>
+            </div>
+            @include('livewire.event.partials.forms.agenda')
+        </div>
+    </div>
 </div>
+
+@push('script')
+<script>
+    const editor = ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            editor.model.document.on('change:data', () => {
+                @this.set('form.request_description', editor.getData());
+            })
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+    const editor2 = ClassicEditor
+        .create(document.querySelector('#editor2'))
+        .then(editor => {
+            editor.model.document.on('change:data', () => {
+                @this.set('form.agenda_description', editor.getData());
+            })
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let tabs = document.querySelectorAll('.tab');
+        let contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function(e) {
+                let targetId = tab.id.replace('Tab', 'Content');
+
+                contents.forEach(function(content) {
+                    content.classList.add('hidden');
+                });
+
+                tabs.forEach(function(tab) {
+                    tab.classList.remove('text-primary-400', 'text-paragraph', 'bg-gray-50', 'border-primary-400');
+                    tab.classList.add('text-gray-600', 'text-paragraph');
+                });
+
+                document.getElementById(targetId).classList.remove('hidden');
+                tab.classList.add('text-primary-400', 'text-paragraph', 'bg-gray-50', 'border-primary-400');
+                tab.classList.remove('text-gray-600', 'text-paragraph');
+            });
+        });
+    });
+</script>
+@endpush

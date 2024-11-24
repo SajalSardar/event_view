@@ -15,7 +15,8 @@ export default {
                 primary: {
                     400: "#6D4DFF",
                     500: "rgb(109,77,266,4%)",
-                    600: "#F5F2FF"
+                    600: "#F5F2FF",
+                    700: "rgb(109,77,266,8%)",
                 },
                 secondary: {
                     400: '#F3F4F6'
