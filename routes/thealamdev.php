@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\CategoryController;
 
 Route::prefix('events')->name('event.')->group(function () {
     Route::controller(EventController::class)->group(function () {
@@ -21,5 +22,12 @@ Route::middleware(['auth', 'locale'])->prefix('dashboard')->group(function () {
         Route::get('create', 'create')->name('create');
         Route::get('edit/{user}', 'edit')->name('edit');
         Route::delete('delete/{user}', 'destroy')->name('delete');
+    });
+
+    Route::controller(CategoryController::class)->prefix('category')->name('category.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::get('edit/{category}', 'edit')->name('edit');
+        Route::delete('delete/{category}', 'destroy')->name('delete');
     });
 });
