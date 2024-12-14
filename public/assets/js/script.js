@@ -180,10 +180,10 @@ let toggleEmailNotificationBox = document.querySelector(
     ".toggle-email-notification-box"
 );
 
-toggleEmailNotificationButton.addEventListener("click", function (e) {
-    if (toggleEmailNotificationBox.style.display == "none") {
-        toggleEmailNotificationBox.style.display = "block";
-    } else {
-        toggleEmailNotificationBox.style.display = "none";
-    }
-});
+// toggleEmailNotificationButton.addEventListener("click", function (e) {
+//     if (toggleEmailNotificationBox.style.display == "none") {
+//         toggleEmailNotificationBox.style.display = "block";
+//     } else {
+//         toggleEmailNotificationBox.style.display = "none";
+//     }
+// });

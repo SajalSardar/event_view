@@ -1,5 +1,5 @@
 <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
-    <div class="mt-8">
+    <div>
         <div class="flex justify-between items-center px-9">
             <div class="basis-1/2 relative">
                 <div class="relative flex justify-center items-center w-[40px] h-[40px] rounded-full bg-primary-400 z-10">
@@ -22,13 +22,13 @@
 
         <div class="flex justify-between items-center">
             <div class="basis-1/2">
-                <p class="text-paragraph">Events Details</p>
+                <p class="text-paragraph pt-1">Events Details</p>
             </div>
             <div class="basis-1/2">
-                <p class="text-paragraph" style="margin-left:-42px">Create Tickets</p>
+                <p class="text-paragraph pt-1" style="margin-left:-42px">Create Tickets</p>
             </div>
             <div>
-                <p class="absolute w-[200px] text-paragraph" style="margin-left:-130px;margin-top:-12px">Publish And Review</p>
+                <p class="pt-1 absolute w-[200px] text-paragraph" style="margin-left:-130px;margin-top:-12px">Publish And Review</p>
             </div>
         </div>
     </div>

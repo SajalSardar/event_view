@@ -303,3 +303,7 @@ span {
 .svgColorParent:hover .svgColor svg>path {
     stroke: #6D4DFF !important;
 }
+
+.svgColorParent:hover .textColor {
+    color: #6D4DFF !important;
+}

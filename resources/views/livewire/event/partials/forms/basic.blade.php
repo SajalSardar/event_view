@@ -15,15 +15,15 @@
     </div>
 
     <div class="mb-2">
-        <x-forms.label for="form.request_description">
+        <x-forms.label for="form.details">
             {{ __('About this event') }}
         </x-forms.label>
         <div wire:ignore>
-            <textarea wire:ignore cols="30" id="editor" rows="10" wire:model.lazy='form.request_description'
+            <textarea wire:ignore cols="30" id="editor" rows="10" wire:model='form.details'
                 class="w-full py-3 text-base font-normal font-inter border border-slate-400 rounded"
                 placeholder="Add description here.."></textarea>
-            <x-input-error :messages="$errors->get('form.request_description')" class="mt-2" />
         </div>
+        <x-input-error :messages="$errors->get('form.details')" class="mt-2" />
     </div>
     <div class="mb-2">
         <x-forms.label for="form.image">
@@ -46,6 +46,17 @@
             <x-input-error :messages="$errors->get('form.image')" class="mt-2" />
         </div>
     </div>
+
+    <div class="mb-2">
+        <x-forms.label for="form.category">
+            Organized By
+        </x-forms.label>
+        <x-forms.select-input wire.model="form.organizer">
+            <option value="">Organized By</option>
+        </x-forms.select-input>
+        <x-input-error :messages="$errors->get('form.organizer')" class="mt-2" />
+    </div>
+
     <div class="mb-2">
         <x-forms.label for="form.category">
             Event Category

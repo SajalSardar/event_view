@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\DatabaseStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,8 +17,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('description', length: 150);
             $table->longText('details');
-            $table->foreignId('organizer_id')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('category_id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('organizer_id')->constrained(table: 'users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onUpdate('cascade')->onDelete('cascade');
+            $table->boolean('status')->default(DatabaseStatus::ACTIVE->value);
             $table->softDeletes();
             $table->timestamps();
         });
