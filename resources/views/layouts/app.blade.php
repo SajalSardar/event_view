@@ -20,7 +20,7 @@
 
 <main class="w-full bg-body md:w-[calc(100%-256px)] md:ml-64 min-h-screen transition-all main">
     @include('layouts.partials.navbar')
-    <div class="m-6 min-h-screen bg-white">
+    <div class="m-6 min-h-[86vh] bg-white">
         {{ $slot }}
     </div>
 </main>

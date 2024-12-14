@@ -11,7 +11,7 @@ class TextInputIcon extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public ?string $type, public ?string $dir)
+    public function __construct(public ?string $dir)
     {
         //
     }
