@@ -12,6 +12,7 @@ export default {
     theme: {
         extend: {
             colors: {
+                body: '#f6f6f6',
                 primary: {
                     400: "#6D4DFF",
                     500: "rgb(109,77,266,4%)",
@@ -22,8 +23,8 @@ export default {
                     400: '#F3F4F6'
                 },
                 word: {
-                    title: '#333333',
-                    paragraph: '#5c5c5c'
+                    title: '#27313b',
+                    paragraph: '#5e666e'
                 },
                 line: {
                     base: '#dddddd',
@@ -35,7 +36,7 @@ export default {
             },
         },
         screens: {
-            'sm': '480px',
+            'sm': '380px',
             'md': '768px',
             'lg': '1024px',
             'xl': '1280px',

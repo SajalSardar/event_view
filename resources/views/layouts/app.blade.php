@@ -18,9 +18,9 @@
 
 @include('layouts.partials.sidebar')
 
-<main class="w-full bg-white md:w-[calc(100%-256px)] md:ml-64 min-h-screen transition-all main">
+<main class="w-full bg-body md:w-[calc(100%-256px)] md:ml-64 min-h-screen transition-all main">
     @include('layouts.partials.navbar')
-    <div class="p-6">
+    <div class="m-6 min-h-screen bg-white">
         {{ $slot }}
     </div>
 </main>
