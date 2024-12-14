@@ -26,7 +26,7 @@ class CreateForm extends Form
     public function rules(): array
     {
         return [
-            'title'         => ['required'],
+            'title'         => 'required',
             'description'   => ['required', 'max:150'],
             'details'       => ['required'],
             'category'      => ['required'],

@@ -17,8 +17,8 @@ class CreateEvent extends Component
      */
     public function store(): void
     {
-        $this->form->validate();
-        
+        // $this->form->validate($this->form->rules());
+        dd($this->form);
     }
 
     public function render()

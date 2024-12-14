@@ -19,9 +19,7 @@
             {{ __('About this event') }}
         </x-forms.label>
         <div wire:ignore>
-            <textarea wire:ignore cols="30" id="editor" rows="10" wire:model='form.details'
-                class="w-full py-3 text-base font-normal font-inter border border-slate-400 rounded"
-                placeholder="Add description here.."></textarea>
+            <textarea wire:ignore cols="30" id="editor" rows="10" wire:model='form.details' class="w-full py-3 text-base font-normal font-inter border border-slate-400 rounded" placeholder="Add description here.."></textarea>
         </div>
         <x-input-error :messages="$errors->get('form.details')" class="mt-2" />
     </div>
@@ -52,7 +50,10 @@
             Organized By
         </x-forms.label>
         <x-forms.select-input wire.model="form.organizer">
-            <option value="">Organized By</option>
+            <option>Organized By</option>
+            @foreach ($organizers as $each)
+            <option value="{{ $each->id }}">{{ $each->name }}</option>
+            @endforeach
         </x-forms.select-input>
         <x-input-error :messages="$errors->get('form.organizer')" class="mt-2" />
     </div>
@@ -62,7 +63,10 @@
             Event Category
         </x-forms.label>
         <x-forms.select-input wire.model="form.category">
-            <option value="">Event Category</option>
+            <option>Event Category</option>
+            @foreach ($categories as $each)
+            <option value="{{ $each->id }}">{{ $each->title }}</option>
+            @endforeach
         </x-forms.select-input>
         <x-input-error :messages="$errors->get('form.category')" class="mt-2" />
     </div>
