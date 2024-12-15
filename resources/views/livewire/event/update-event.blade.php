@@ -37,3 +37,30 @@
         @include('livewire.event.partials.forms.agenda')
     </div>
 </div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let tabs = document.querySelectorAll('.tab');
+        let contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function(e) {
+                let targetId = tab.id.replace('Tab', 'Content');
+
+                contents.forEach(function(content) {
+                    content.classList.add('hidden');
+                });
+
+                tabs.forEach(function(tab) {
+                    tab.classList.remove('text-primary-400', 'text-paragraph', 'bg-gray-50', 'border-primary-400');
+                    tab.classList.add('text-gray-600', 'text-paragraph');
+                });
+
+                document.getElementById(targetId).classList.remove('hidden');
+                tab.classList.add('text-primary-400', 'text-paragraph', 'bg-gray-50', 'border-primary-400');
+                tab.classList.remove('text-gray-600', 'text-paragraph');
+            });
+        });
+    });
+</script>
