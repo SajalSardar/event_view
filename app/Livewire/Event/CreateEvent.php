@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Event;
 
-use App\Livewire\Forms\Event\CreateForm;
 use App\Models\Event;
 use Illuminate\Http\RedirectResponse;
 use Livewire\Component;

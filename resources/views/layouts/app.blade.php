@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/drop.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
     @livewireStyles
     @stack('style')
 </head>
@@ -31,6 +32,7 @@
 <script src="{{ asset('assets/js/drop.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}"></script>
 <script src="{{ asset('assets/js/nice-select2.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     var options = {
         searchable: true,

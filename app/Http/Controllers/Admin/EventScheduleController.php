@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use App\Models\EventSchedule;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class EventScheduleController extends Controller
     public function displayListDatatable()
     {
         Gate::authorize('viewAny',  EventSchedule::class);
-        
+
         $eventSchedule = Cache::remember('eventSchedule_list', 60 * 60, function () {
             return EventSchedule::get();
         });
@@ -35,10 +36,10 @@ class EventScheduleController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Event $event)
     {
         Gate::authorize('create', EventSchedule::class);
-        return view('eventSchedule.create');
+        return view('eventSchedule.create', compact('event'));
     }
 
     /**
@@ -48,7 +49,6 @@ class EventScheduleController extends Controller
     {
         //
         Gate::authorize('create', EventSchedule::class);
-
     }
 
     /**

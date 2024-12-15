@@ -38,6 +38,7 @@
                             <x-input-error :messages="$errors->get('description')" class="mt-2" />
                         </div>
                     </div>
+
                     <div class="grid lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 sm:gap-1 md:gap-2 mt-2">
                         <div class="w-full">
                             <x-forms.label for="description" required='yes'>

@@ -28,7 +28,6 @@ Route::prefix('events')->name('event.')->group(function () {
     });
 });
 
-
 Route::middleware(['auth', 'locale'])->prefix('dashboard')->group(function () {
     Route::controller(AdminUserController::class)->prefix('user')->name('user.')->group(function () {
         Route::get('/', 'index')->name('index');
