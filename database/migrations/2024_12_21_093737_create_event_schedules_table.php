@@ -13,6 +13,18 @@ return new class extends Migration
     {
         Schema::create('event_schedules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId(column: 'event_id')->constrained(table: 'events')->onDelete(action: 'cascade')->onUpdate(action: 'cascade');
+            $table->string(column: 'slot');
+            $table->date(column: 'date');
+            $table->time(column: 'start');
+            $table->time(column: 'end');
+            $table->string(column: 'location');
+            $table->string(column: 'street');
+            $table->string(column: 'state');
+            $table->string(column: 'city');
+            $table->string(column: 'zip');
+            $table->string(column: 'long')->nullable()->default(value: 0);
+            $table->string(column: 'lati')->nullable()->default(value: 0);
             $table->softDeletes();
             $table->timestamps();
         });

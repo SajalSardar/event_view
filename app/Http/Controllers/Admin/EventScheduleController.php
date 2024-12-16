@@ -17,6 +17,7 @@ class EventScheduleController extends Controller
      */
     public function index()
     {
+        
         Gate::authorize('viewAny',  EventSchedule::class);
         return view("eventSchedule.index");
     }

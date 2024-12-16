@@ -12,13 +12,20 @@
 
             <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mt-8 gap-4">
                 <div class="border border-base-500 p-6 rounded">
+                    <div class="grid lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 sm:gap-1 md:gap-2">
+                        <x-forms.label for="slot" required="yes">
+                            {{ __('Slot') }}
+                        </x-forms.label>
+                        <x-forms.text-input id="slot" placeholder="Enter slot name" wire:model="slot" type="text" dir="end" />
+                        <x-input-error :messages="$errors->get('slot')" class="mt-2" />
+                    </div>
                     <!-- Date and Time Section -->
-                    <div class="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 sm:gap-1 md:gap-2">
+                    <div class="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 sm:gap-1 md:gap-2 mt-2">
                         <div class="lg:col-span-2">
                             <x-forms.label for="date" required="yes">
                                 {{ __('Date and time') }}
                             </x-forms.label>
-                            <x-forms.text-input-icon id="date" wire:model="date" type="text" dir="end">
+                            <x-forms.text-input-icon id="date" placeholder="Enter Date" wire:model="date" type="text" dir="end">
                                 <x-svg.calender />
                             </x-forms.text-input-icon>
                             <x-input-error :messages="$errors->get('date')" class="mt-2" />
@@ -27,19 +34,19 @@
                             <x-forms.label style="opacity: 0;" for="startTime" required="yes">
                                 {{ __('Start time') }}
                             </x-forms.label>
-                            <x-forms.text-input-icon id="startTime" placeholder="Start time" wire:model="start_date" type="text" dir="end">
+                            <x-forms.text-input-icon id="startTime" placeholder="Start time" wire:model="startTime" type="text" dir="end">
                                 <x-svg.clock />
                             </x-forms.text-input-icon>
-                            <x-input-error :messages="$errors->get('start_date')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('startTime')" class="mt-2" />
                         </div>
                         <div class="lg:col-span-1">
                             <x-forms.label style="opacity: 0;" for="endTime" required="yes">
                                 {{ __('End time') }}
                             </x-forms.label>
-                            <x-forms.text-input-icon id="endTime" placeholder="End time" wire:model="end_date" type="text" dir="end">
+                            <x-forms.text-input-icon id="endTime" placeholder="End time" wire:model="endTime" type="text" dir="end">
                                 <x-svg.clock />
                             </x-forms.text-input-icon>
-                            <x-input-error :messages="$errors->get('end_date')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('endTime')" class="mt-2" />
                         </div>
                     </div>
 
@@ -48,7 +55,7 @@
                         <x-forms.label for="location" required="yes">
                             {{ __('Location') }}
                         </x-forms.label>
-                        <x-forms.text-input-icon id="location" wire:model.live="location" type="text" dir="end">
+                        <x-forms.text-input-icon id="location" wire:model="location" type="text" dir="end">
                             <x-svg.map />
                         </x-forms.text-input-icon>
                         <x-input-error :messages="$errors->get('location')" class="mt-2" />
@@ -83,6 +90,9 @@
                     <!-- Save and Next Button -->
                     <div class="pt-6">
                         <x-buttons.primary>
+                            Save
+                        </x-buttons.primary>
+                        <x-buttons.primary type="button" wire:click="next">
                             Save & Next
                         </x-buttons.primary>
                     </div>
@@ -90,8 +100,28 @@
 
                 <!-- Event Details Section -->
                 <div>
-                    <p>Event Name : {{ $event->title }}</p>
-                    <p>Event Details : {!! $event->details !!}</p>
+                    <p>Event Name : {{ $event?->title }}</p>
+                    <p>Event Details : {!! $event?->details !!}</p>
+                    <table>
+                        <thead>
+                            <th>ID</th>
+                            <th>Slot</th>
+                            <th>Date</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Location</th>
+                        </thead>
+                        @foreach ($schedules as $each)
+                        <tr>
+                            <td>{{ $each->id }}</td>
+                            <td>{{ $each->slot }}</td>
+                            <td>{{ $each->date }}</td>
+                            <td>{{ $each->start }}</td>
+                            <td>{{ $each->end }}</td>
+                            <td>{{ $each->location }}</td>
+                        </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </form>
@@ -109,15 +139,15 @@
         enableTime: true,
         noCalendar: true,
         dateFormat: "H:i",
-        minTime: "16:00",
-        maxTime: "22:30",
+        minTime: "00:00",
+        maxTime: "23:00",
     });
     flatpickr("#endTime", {
         enableTime: true,
         noCalendar: true,
         dateFormat: "H:i",
-        minTime: "16:00",
-        maxTime: "22:30",
+        minTime: "00:00",
+        maxTime: "23:00",
     });
 </script>
 @endpush

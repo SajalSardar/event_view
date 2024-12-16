@@ -15,8 +15,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        // Gate::authorize('view', Event::class);
-        return view('event.index');
+        $events = Event::query()->get();
+        Gate::authorize('view', Event::class);
+        return view('event.index', compact('events'));
     }
 
     /**

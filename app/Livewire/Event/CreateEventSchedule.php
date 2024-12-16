@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Event;
 
+use App\Models\Event;
+use App\Models\EventSchedule;
 use Livewire\Component;
 
 class CreateEventSchedule extends Component
@@ -12,17 +14,49 @@ class CreateEventSchedule extends Component
      */
     public array|object $event;
 
+    /**
+     * Define the schedules
+     * @var array|object
+     */
+    public array|object $schedules;
+
+    /**
+     * Define slot
+     * @var ?string
+     */
+    public $slot;
+
+    /**
+     * Summary of date
+     * @var ?string
+     */
     public $date;
     public $startTime;
     public $endTime;
     public $location;
     public $street;
+    public $city;
+    public $state;
     public $zip;
 
-    public function store()
+    public function store(): void
     {
-        // $this->validate($this->rules());
-        dd($this->date);
+        $this->validate($this->rules());
+        $isCreate = EventSchedule::create($this->contract());
+        $response = $isCreate ? 'Event Schedule has been added' : 'Something went wrong';
+        flash()->success($response);
+        // $this->reset();
+    }
+
+    public function next()
+    {
+        $this->store();
+        return redirect(route('dashboard'));
+    }
+
+    public function mount()
+    {
+        $this->schedules = EventSchedule::query()->where('event_id', $this->event->getKey())->get();
     }
 
     /**
@@ -32,12 +66,31 @@ class CreateEventSchedule extends Component
     public function rules(): array
     {
         return [
+            'slot'      => ['required'],
             'date'      => ['required'],
             'startTime' => ['required'],
             'endTime'   => ['required'],
             'location'  => ['required'],
             'street'    => ['required'],
+            'city'      => ['required'],
+            'state'     => ['required'],
             'zip'       => ['required'],
+        ];
+    }
+
+    public function contract(): array
+    {
+        return [
+            'slot'      => $this->slot,
+            'event_id'  => $this->event->getKey(),
+            'date'      => $this->date,
+            'start'     => $this->startTime,
+            'end'       => $this->endTime,
+            'location'  => $this->location,
+            'street'    => $this->street,
+            'city'      => $this->city,
+            'state'     => $this->state,
+            'zip'       => $this->zip,
         ];
     }
 
