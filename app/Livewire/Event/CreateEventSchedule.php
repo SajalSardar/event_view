@@ -24,20 +24,20 @@ class CreateEventSchedule extends Component
      * Define slot
      * @var ?string
      */
-    public $slot;
+    public ?string $slot = null;
 
     /**
      * Summary of date
      * @var ?string
      */
-    public $date;
-    public $startTime;
-    public $endTime;
-    public $location;
-    public $street;
-    public $city;
-    public $state;
-    public $zip;
+    public ?string $date = null;
+    public ?string $startTime = null;
+    public ?string $endTime = null;
+    public ?string $location = null;
+    public ?string $street = null;
+    public ?string $city = null;
+    public ?string $state = null;
+    public ?string $zip = null;
 
     public function store(): void
     {
@@ -45,13 +45,14 @@ class CreateEventSchedule extends Component
         $isCreate = EventSchedule::create($this->contract());
         $response = $isCreate ? 'Event Schedule has been added' : 'Something went wrong';
         flash()->success($response);
-        // $this->reset();
+        $this->mount();
+        $this->resetForm();
     }
 
     public function next()
     {
         $this->store();
-        return redirect(route('dashboard'));
+        return redirect(route('admin.event.agenda.create', ['event' => $this->event->getKey()]));
     }
 
     public function mount()
@@ -92,6 +93,14 @@ class CreateEventSchedule extends Component
             'state'     => $this->state,
             'zip'       => $this->zip,
         ];
+    }
+
+    public function resetForm(...$properties)
+    {
+        $this->slot = '';
+        $this->date = null;
+        $this->startTime = '';
+        $this->location = '';
     }
 
     public function render()
