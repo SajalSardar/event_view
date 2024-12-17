@@ -95,7 +95,7 @@ class CreateEventSchedule extends Component
         ];
     }
 
-    public function resetForm(...$properties)
+    public function resetForm()
     {
         $this->slot = '';
         $this->date = null;

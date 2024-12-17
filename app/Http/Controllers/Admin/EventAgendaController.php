@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
+use App\Models\Event;
 
 class EventAgendaController extends Controller
 {
@@ -26,7 +27,7 @@ class EventAgendaController extends Controller
     public function displayListDatatable()
     {
         Gate::authorize('viewAny',  EventAgenda::class);
-        
+
         $eventAgenda = Cache::remember('eventAgenda_list', 60 * 60, function () {
             return EventAgenda::get();
         });
@@ -34,11 +35,12 @@ class EventAgendaController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * @param Event $event
      */
-    public function create()
+    public function create(Event $event)
     {
         Gate::authorize('create', EventAgenda::class);
-        return view('eventAgenda.create');
+        return view('eventAgenda.create', compact('event'));
     }
 
     /**
@@ -48,7 +50,6 @@ class EventAgendaController extends Controller
     {
         //
         Gate::authorize('create', EventAgenda::class);
-
     }
 
     /**
