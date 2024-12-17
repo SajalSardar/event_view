@@ -5,6 +5,7 @@ namespace App\Livewire\Event;
 use Livewire\Component;
 use App\Models\EventSchedule;
 use App\Livewire\Forms\Event\Agenda\CreateForm;
+use App\Models\EventAgenda;
 use Livewire\WithFileUploads;
 
 class CreateEventAgenda extends Component
@@ -37,7 +38,10 @@ class CreateEventAgenda extends Component
     public function store(): void
     {
         $this->form->validate();
-        dd($this->form->contract($this->event->getKey()));
+        $isCreate = EventAgenda::create($this->form->contract($this->event->getKey()));
+        $response = $isCreate ? 'Event Agent added successfully' : 'Something went wrong';
+        flash()->success(message: $response);
+        $this->form->reset();
     }
 
     public function render()

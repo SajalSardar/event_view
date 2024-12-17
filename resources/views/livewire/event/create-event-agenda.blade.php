@@ -17,7 +17,7 @@
                             <x-forms.label for="form.topic" required="yes">
                                 {{__('Topic')}}
                             </x-forms.label>
-                            <x-forms.text-input wire:model="form.topic" />
+                            <x-forms.text-input wire:model.live="form.topic" />
                             <x-input-error :messages="$errors->get('form.topic')" class="mt-2" />
                         </div>
                         <div class="lg:col-span-1">
@@ -51,6 +51,7 @@
                             <x-input-error :messages="$errors->get('form.description')" class="mt-2" />
                         </div>
                     </div>
+
                     <div class="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-1 gap-6 mt-2 justify-between items-center">
                         <div class="col-span-4">
                             <x-forms.label for="form.speaker">
@@ -63,18 +64,22 @@
                         <div class="flex justify-end items-center mt-3">
                             <div class="flex justify-end items-center">
                                 <div class="w-full flex justify-center">
-                                    <div class="relative flex p-2 justify-center items-center text-center w-[80px] h-[80px] rounded-full bg-primary-700 cursor-pointer" onclick="document.getElementById('image').click()">
+                                    <div class="relative overflow-hidden flex p-2 justify-center items-center text-center w-[80px] h-[80px] rounded-full bg-primary-700 cursor-pointer" onclick="document.getElementById('image').click()">
                                         <span class="text-paragraph">Add Photo</span>
-                                        <div class="absolute top-0 left-0 z-10" id="preview">
+                                        <div class="absolute top-0 left-0 z-10">
+                                            @if ($form->image)
+                                            <img src="{{ $form->image->temporaryUrl() }}" alt="">
+                                            @endif
                                         </div>
+                                        <input class="absolute opacity-0" wire:model="form.image" type="file" accept="image/*" />
                                     </div>
                                 </div>
-                                <input id="image" wire:model="form.image" type="file" accept="image/*" hidden />
+
                             </div>
                             <x-input-error :messages="$errors->get('form.image')" class="mt-2" />
                         </div>
-
                     </div>
+
                     <div class="grid lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 sm:gap-1 md:gap-2 mt-2">
                         <div class="w-full">
                             <x-forms.label for="form.designation">

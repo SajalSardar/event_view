@@ -40,7 +40,7 @@ class CreateForm extends Form
      * Define speaker model
      * @var ?string
      */
-    public ?string $speaker = null;
+    public $speaker;
 
     /**
      * Define image model
@@ -61,7 +61,7 @@ class CreateForm extends Form
             'description'       => ['nullable', 'string'],
             'designation'       => ['nullable', 'string'],
             'speaker'           => ['nullable', 'string'],
-            'image'             => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:1024'],
+            // 'image'             => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:1024'],
         ];
     }
 
