@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class EventAgenda extends Model
 {
@@ -13,6 +14,15 @@ class EventAgenda extends Model
 
     protected $table = 'event_agendas';
     protected $guarded = ['id'];
+
+    /**
+     * Define relation associate with Image model
+     * @return MorphOne
+     */
+    public function image(): MorphOne
+    {
+        return $this->morphOne(related: Image::class, name: 'image');
+    }
 
     protected static function boot()
     {

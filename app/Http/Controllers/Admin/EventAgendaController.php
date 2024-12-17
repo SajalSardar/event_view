@@ -37,8 +37,12 @@ class EventAgendaController extends Controller
      * Show the form for creating a new resource.
      * @param Event $event
      */
-    public function create(Event $event)
+    public function create(?string $id)
     {
+        $event = Event::query()->where(column: 'id', operator: $id)
+            ->with(relations: ['schedules'])
+            ->with(['agendas' => fn($query) => $query->with('image')])
+            ->first();
         Gate::authorize('create', EventAgenda::class);
         return view('eventAgenda.create', compact('event'));
     }

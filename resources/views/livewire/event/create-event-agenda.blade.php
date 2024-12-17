@@ -99,7 +99,6 @@
                         </x-buttons.primary>
                     </div>
                 </div>
-
                 <!-- Event Details Section -->
                 <div>
                     <p>Event Name : {{ $event?->title }}</p>
@@ -113,7 +112,7 @@
                             <th>End Time</th>
                             <th>Location</th>
                         </thead>
-                        @foreach ($schedules as $each)
+                        @foreach ($event->schedules as $each)
                         <tr>
                             <td>{{ $each->id }}</td>
                             <td>{{ $each->slot }}</td>
@@ -124,6 +123,30 @@
                         </tr>
                         @endforeach
                     </table>
+
+                    <table>
+                        <thead>
+                            <th>ID</th>
+                            <th>Slot</th>
+                            <th>Date</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Location</th>
+                        </thead>
+                        @foreach ($event->agendas as $each)
+                        <tr>
+                            <td>{{ $each->id }}</td>
+                            <td>{{ $each->topic }}</td>
+                            <td>{{ $each->description }}</td>
+                            <td>{{ $each->start }}</td>
+                            <td>{{ $each->end }}</td>
+                             
+                            <td><img src="{{ $each?->image?->url }}" alt="#" width="50px" height="50px" style="border-radius: 50%;"></td>
+                        </tr>
+                        @endforeach
+                    </table>
+
+
                 </div>
             </div>
         </form>
