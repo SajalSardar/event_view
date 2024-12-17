@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Event;
 
+use App\Enums\Bucket;
+use App\Local\FileStorage;
 use Livewire\Component;
 use App\Models\EventSchedule;
 use App\Livewire\Forms\Event\Agenda\CreateForm;
@@ -11,6 +13,8 @@ use Livewire\WithFileUploads;
 class CreateEventAgenda extends Component
 {
     use WithFileUploads;
+
+    use FileStorage;
 
     /**
      * Define Form event
@@ -40,6 +44,7 @@ class CreateEventAgenda extends Component
         $this->form->validate();
         $isCreate = EventAgenda::create($this->form->contract($this->event->getKey()));
         $response = $isCreate ? 'Event Agent added successfully' : 'Something went wrong';
+        FileStorage::store(file: $this->form->image, path: Bucket::SPEAKER->value, model: EventAgenda::class, key: $this->event->getKey());
         flash()->success(message: $response);
         $this->form->reset();
     }
