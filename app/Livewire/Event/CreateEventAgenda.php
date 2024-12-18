@@ -9,6 +9,7 @@ use App\Models\EventSchedule;
 use App\Livewire\Forms\Event\Agenda\CreateForm;
 use App\Models\Event;
 use App\Models\EventAgenda;
+use Illuminate\Contracts\View\View;
 use Livewire\WithFileUploads;
 
 class CreateEventAgenda extends Component
@@ -42,7 +43,16 @@ class CreateEventAgenda extends Component
         $response = $isCreate ? 'Event Agent added successfully' : 'Something went wrong';
         FileStorage::store(file: $this->form->image, path: Bucket::SPEAKER->value, model: EventAgenda::class, key: $isCreate->getKey());
         flash()->success(message: $response);
-        $this->form->reset();
+        (__FUNCTION__ === 'store')  ? redirect(request()->header('Referer')) : '';
+    }
+
+    /**
+     * Define next rendering
+     */
+    public function next()
+    {
+        $this->store();
+        return redirect(route('admin.event.faq.create', ['event' => $this->event->getKey()]));
     }
 
     public function render()

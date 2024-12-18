@@ -16,7 +16,7 @@
                         <x-forms.label for="slot" required="yes">
                             {{ __('Slot') }}
                         </x-forms.label>
-                        <x-forms.text-input id="slot" placeholder="Enter slot name" wire:model="slot" type="text" dir="end" />
+                        <x-forms.text-input id="slot"  placeholder="Enter slot name" wire:model="slot" type="text" dir="end" />
                         <x-input-error :messages="$errors->get('slot')" class="mt-2" />
                     </div>
                     <!-- Date and Time Section -->

@@ -3,7 +3,9 @@
         <div class="p-3 border border-line-base text-paragraph rounded mb-3">What is this event about?</div>
         <div class="p-3 border border-line-base text-paragraph rounded mb-3">When And Where This Event Is Happening?</div>
         <div class="p-3 border border-primary-400 bg-primary-700 text-paragraph rounded mb-3">Add Agenda to Your Event</div>
-        <div class="p-3 border border-line-base text-paragraph rounded mb-3">When And Where This Event Is Happening?</div>
+        <a href="{{ route('admin.event.faq.create', ['event' => $event->id]) }}">
+            <div class="p-3 border border-line-base text-paragraph rounded mb-3">When And Where This Event Is Happening?</div>
+        </a>
     </div>
 
     <div class="col-span-6">
@@ -17,7 +19,7 @@
                             <x-forms.label for="form.topic" required="yes">
                                 {{__('Topic')}}
                             </x-forms.label>
-                            <x-forms.text-input wire:model.live="form.topic" />
+                            <x-forms.text-input wire:model="form.topic" />
                             <x-input-error :messages="$errors->get('form.topic')" class="mt-2" />
                         </div>
                         <div class="lg:col-span-1">
@@ -140,7 +142,7 @@
                             <td>{{ $each->description }}</td>
                             <td>{{ $each->start }}</td>
                             <td>{{ $each->end }}</td>
-                             
+
                             <td><img src="{{ $each?->image?->url }}" alt="#" width="50px" height="50px" style="border-radius: 50%;"></td>
                         </tr>
                         @endforeach

@@ -44,6 +44,15 @@ class Event extends Model
     }
 
     /**
+     * Get all resources associate with this model
+     * @return HasMany
+     */
+    public function faqs(): HasMany
+    {
+        return $this->hasMany(related: EventFAQ::class, foreignKey: 'event_id', localKey: 'id');
+    }
+
+    /**
      * Define boot functionalities
      * @return void
      */

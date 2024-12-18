@@ -8,6 +8,9 @@ use Livewire\Component;
 
 class CreateEventSchedule extends Component
 {
+    protected $listeners = ['refreshComponent' => '$refresh'];
+
+
     /**
      * Get the specific event collection
      * @var array|object
@@ -39,14 +42,15 @@ class CreateEventSchedule extends Component
     public ?string $state = null;
     public ?string $zip = null;
 
-    public function store(): void
+    public function store()
     {
+
         $this->validate($this->rules());
         $isCreate = EventSchedule::create($this->contract());
         $response = $isCreate ? 'Event Schedule has been added' : 'Something went wrong';
         flash()->success($response);
         $this->mount();
-        $this->resetForm();
+        (__FUNCTION__ === 'store')  ? redirect(request()->header('Referer')) : '';
     }
 
     public function next()
@@ -93,14 +97,6 @@ class CreateEventSchedule extends Component
             'state'     => $this->state,
             'zip'       => $this->zip,
         ];
-    }
-
-    public function resetForm()
-    {
-        $this->slot = '';
-        $this->date = null;
-        $this->startTime = '';
-        $this->location = '';
     }
 
     public function render()
